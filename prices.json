@@ -1,0 +1,10 @@
+[
+  {"producto":"Arroz blanco 1 kg","categoria":"arroz","min":{"precio":15.50,"tienda":"Bodega Aurrera"},"max":{"precio":28.00,"tienda":"Superama"},"amazon":19.90,"link":"https://www.amazon.com.mx/s?k=arroz+blanco","ultima_actualizacion":"24 nov 2025"},
+  {"producto":"Leche Liconsa 1 L","categoria":"leche","min":{"precio":9.50,"tienda":"Tienda Liconsa"},"max":{"precio":24.50,"tienda":"City Market"},"amazon":21.00,"link":"https://www.amazon.com.mx/s?k=leche+liconsa","ultima_actualizacion":"24 nov 2025"},
+  {"producto":"Aceite 1-2-3 1 L","categoria":"aceite","min":{"precio":24.90,"tienda":"Walmart"},"max":{"precio":42.00,"tienda":"La Comer"},"amazon":29.90,"link":"https://www.amazon.com.mx/s?k=aceite+123","ultima_actualizacion":"24 nov 2025"},
+  {"producto":"Frijol negro 900 g","categoria":"frijol","min":{"precio":22.50,"tienda":"Soriana"},"max":{"precio":38.00,"tienda":"Chedraui Selecto"},"amazon":28.00,"link":"https://www.amazon.com.mx/s?k=frijol+negro","ultima_actualizacion":"24 nov 2025"},
+  {"producto":"Papel higiénico 12 rollos","categoria":"higiene","min":{"precio":45.00,"tienda":"Bodega Aurrera"},"max":{"precio":98.00,"tienda":"Walmart"},"amazon":65.00,"link":"https://www.amazon.com.mx/s?k=papel+higienico","ultima_actualizacion":"24 nov 2025"},
+  {"producto":"Jabón de barra Zote 400 g","categoria":"higiene","min":{"precio":12.00,"tienda":"Mercado Libre"},"max":{"precio":28.00,"tienda":"Superama"},"amazon":18.50,"link":"https://www.amazon.com.mx/s?k=jabon+zote","ultima_actualizacion":"24 nov 2025"},
+  {"producto":"Pañales Huggies etapa 4 68 piezas","categoria":"bebe","min":{"precio":259.00,"tienda":"Farmacias del Ahorro"},"max":{"precio":420.00,"tienda":"San Pablo"},"amazon":299.00,"link":"https://www.amazon.com.mx/s?k=panales+huggies","ultima_actualizacion":"24 nov 2025"},
+  {"producto":"Detergente Ariel 3 kg","categoria":"limpieza","min":{"precio":89.00,"tienda":"Soriana"},"max":{"precio":165.00,"tienda":"Chedraui"},"amazon":119.00,"link":"https://www.amazon.com.mx/s?k=detergente+ariel","ultima_actualizacion":"24 nov 2025"}
+]
