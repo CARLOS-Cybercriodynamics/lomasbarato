@@ -125,71 +125,120 @@
       includeScore: true
     });
 
-    const cdn = "https://images.weserv.nl/?url=lomasbarato.mx/deals/";
+    const productos = [
+        {
+          nombre: "Arroz SOS Grano Grueso 1 kg",
+          imagen: "https://m.media-amazon.com/images/I/71e3vZ0Z9QL._AC_SL1500_.jpg",
+          precios: [
+            { tienda: "Walmart", precio: 24.50, link: "https://www.walmart.com.mx" },
+            { tienda: "Soriana", precio: 25.90, link: "https://www.soriana.com" },
+            { tienda: "Amazon", precio: 28.00, link: "https://www.amazon.com.mx" }
+          ]
+        },
+        {
+          nombre: "Leche Lala Entera 1 Litro",
+          imagen: "https://m.media-amazon.com/images/I/61+XvX+2rEL._AC_SL1200_.jpg",
+          precios: [
+            { tienda: "Chedraui", precio: 22.50, link: "https://www.chedraui.com.mx" },
+            { tienda: "Walmart", precio: 23.00, link: "https://www.walmart.com.mx" }
+          ]
+        },
+        {
+          nombre: "Aceite Nutrioli Puro de Soya 1L",
+          imagen: "https://m.media-amazon.com/images/I/81XgV8dXqRL._AC_SL1500_.jpg",
+          precios: [
+            { tienda: "Soriana", precio: 32.90, link: "https://www.soriana.com" },
+            { tienda: "Amazon", precio: 35.00, link: "https://www.amazon.com.mx" }
+          ]
+        },
+        {
+          nombre: "iPhone 15 128GB Negro",
+          imagen: "https://m.media-amazon.com/images/I/71fJ0UR74CL._AC_SL1500_.jpg",
+          precios: [
+            { tienda: "Mercado Libre", precio: 17499, link: "https://www.mercadolibre.com.mx" },
+            { tienda: "Amazon", precio: 17999, link: "https://www.amazon.com.mx" }
+          ]
+        },
+        {
+          nombre: "Papel Higiénico Regio Rinde Más 12 rollos",
+          imagen: "https://m.media-amazon.com/images/I/71kZ7Z7Z7ZL._AC_SL1500_.jpg",
+          precios: [
+            { tienda: "Walmart", precio: 89.00, link: "https://www.walmart.com.mx" }
+          ]
+        },
+        {
+          nombre: "TV Samsung 55\" Crystal UHD 4K",
+          imagen: "https://m.media-amazon.com/images/I/71BVGh7OpPL._AC_SL1500_.jpg",
+          precios: [
+            { tienda: "Liverpool", precio: 10999, link: "https://www.liverpool.com.mx" },
+            { tienda: "Amazon", precio: 10499, link: "https://www.amazon.com.mx" }
+          ]
+        }
+      ];
 
-    function renderCards(items) {
-      const results = document.getElementById("results");
-      results.innerHTML = "";
-      
-      if (items.length === 0) {
-        document.getElementById("no-results").classList.remove("d-none");
-        return;
-      }
-
-      items.forEach(p => {
-        // Busca el precio más bajo
-        const mejor = p.precios.reduce((min, cur) => cur.precio < min.precio ? cur : min);
+      function renderCards(items) {
+        const results = document.getElementById("results");
+        results.innerHTML = "";
         
-        const card = document.createElement("div");
-        card.className = "col";
-        card.innerHTML = `
-          <div class="card deal-card h-100 shadow-sm border-0 rounded-3 overflow-hidden">
-            <picture>
-              <source srcset="\( {cdn} \){p.imagen}?w=600&output=webp" type="image/webp">
-              <img src="\( {cdn} \){p.imagen}?w=600" 
-                   alt="${p.nombre} - Oferta más barata en México" 
-                   class="card-img-top" 
-                   loading="lazy" 
-                   decoding="async"
-                   width="600" 
-                   height="450"
-                   style="object-fit: cover; height: 200px;">
-            </picture>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title fw-bold">${p.nombre}</h5>
-              <div class="mt-auto">
-                <p class="price-best mb-2">$${mejor.precio.toLocaleString('es-MX')} <small class="text-success fw-bold">${mejor.tienda}</small></p>
-                <a href="${mejor.link}" target="_blank" class="btn btn-success w-100">
-                  <i class="fas fa-shopping-cart"></i> Ir a la oferta
-                </a>
+        if (items.length === 0) {
+          document.getElementById("no-results").classList.remove("d-none");
+          return;
+        }
+
+        items.forEach(p => {
+          const mejor = p.precios.reduce((min, cur) => cur.precio < min.precio ? cur : min);
+          
+          const card = document.createElement("div");
+          card.className = "col";
+          card.innerHTML = `
+            <div class="card deal-card h-100 shadow-sm border-0 rounded-3 overflow-hidden">
+              <picture>
+                <source srcset="${p.imagen}?w=600&output=webp" type="image/webp">
+                <source srcset="${p.imagen}?w=600" type="image/jpeg">
+                <img src="${p.imagen}?w=600" 
+                     alt="${p.nombre} - Mejor precio en México" 
+                     class="card-img-top" 
+                     loading="lazy" 
+                     decoding="async"
+                     width="600" 
+                     height="450"
+                     style="object-fit: cover; height: 200px;">
+              </picture>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold">${p.nombre}</h5>
+                <div class="mt-auto">
+                  <p class="price-best mb-2">$${mejor.precio.toLocaleString('es-MX')} <small class="text-success fw-bold">${mejor.tienda}</small></p>
+                  <a href="${mejor.link}" target="_blank" class="btn btn-success w-100">
+                    Ir a la oferta
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        `;
-        results.appendChild(card);
-      });
-    }
-
-    // Búsqueda en tiempo real
-    document.getElementById("search").addEventListener("input", (e) => {
-      const query = e.target.value.trim();
-      document.getElementById("loading").classList.add("d-none");
-      document.getElementById("no-results").classList.add("d-none");
-      
-      if (query === "") {
-        renderCards(productos.slice(0, 30)); // Muestra 30 por defecto
-        return;
+          `;
+          results.appendChild(card);
+        });
       }
-      
-      const resultados = fuse.search(query).map(r => r.item);
-      renderCards(resultados);
-    });
 
-    // Carga inicial
-    setTimeout(() => {
-      document.getElementById("loading").classList.add("d-none");
-      renderCards(productos);
-    }, 800);
-  </script>
-</body>
-  </html>
+      // Búsqueda en tiempo real
+      document.getElementById("search").addEventListener("input", (e) => {
+        const query = e.target.value.trim();
+        document.getElementById("loading").classList.add("d-none");
+        document.getElementById("no-results").classList.add("d-none");
+        
+        if (query === "") {
+          renderCards(productos.slice(0, 30));
+          return;
+        }
+        
+        const resultados = fuse.search(query).map(r => r.item);
+        renderCards(resultados);
+      });
+
+      // Carga inicial
+      setTimeout(() => {
+        document.getElementById("loading").classList.add("d-none");
+        renderCards(productos);
+      }, 800);
+    </script>
+  </body>
+</html>
