@@ -1,0 +1,66 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.header { background: white; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+.logo-section { text-align: center; margin-bottom: 15px; }
+.logo { font-size: 2.5rem; color: #2c3e50; font-weight: 700; }
+.logo-domain { color: #e74c3c; }
+.tagline { color: #7f8c8d; font-size: 1rem; margin-top: 5px; }
+.stores-header { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.store-badge { padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; }
+.walmart { background: #0071ce; color: white; }
+.soriana { background: #ff0000; color: white; }
+.chedraui { background: #006837; color: white; }
+.superama { background: #00a859; color: white; }
+.aurrera { background: #f26522; color: white; }
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 0; text-align: center; margin-bottom: 30px; }
+.hero h2 { font-size: 2.2rem; margin-bottom: 15px; }
+.highlight { background: #ffd700; color: #333; padding: 2px 10px; border-radius: 4px; font-weight: 700; }
+.warning-banner { background: rgba(255,255,255,0.2); border-radius: 8px; padding: 12px; margin-top: 20px; display: inline-flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+.filters { background: white; padding: 20px 0; margin-bottom: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.filter-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.filter-btn { padding: 10px 20px; border: 2px solid #e0e0e0; background: white; border-radius: 25px; cursor: pointer; font-weight: 500; transition: all 0.3s; }
+.filter-btn.active { background: #2ecc71; color: white; border-color: #2ecc71; }
+.sorting { text-align: center; }
+.sorting select { padding: 8px 15px; border-radius: 6px; border: 1px solid #ddd; margin-left: 10px; }
+.offers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
+.offer-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s; }
+.offer-card:hover { transform: translateY(-5px); }
+.offer-image { height: 200px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; position: relative; }
+.offer-image img { max-width: 80%; max-height: 80%; object-fit: contain; }
+.badge-discount { position: absolute; top: 15px; left: 15px; background: #e74c3c; color: white; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+.offer-content { padding: 20px; }
+.offer-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; color: #2c3e50; }
+.offer-price { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+.current-price { font-size: 1.8rem; font-weight: 700; color: #2ecc71; }
+.original-price { color: #95a5a6; text-decoration: line-through; font-size: 1.2rem; }
+.offer-meta { display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 0.9rem; color: #7f8c8d; }
+.store-badge-small { padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+.offer-validity { display: flex; align-items: center; gap: 5px; color: #e67e22; }
+.offer-actions { display: flex; gap: 10px; }
+.btn { flex: 1; padding: 12px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; display: block; transition: opacity 0.3s; }
+.btn:hover { opacity: 0.9; }
+.btn-primary { background: #3498db; color: white; }
+.btn-secondary { background: #f8f9fa; color: #333; border: 1px solid #ddd; }
+.newsletter { background: #2c3e50; color: white; padding: 50px 0; text-align: center; margin: 50px 0; border-radius: 15px; }
+.newsletter h3 { font-size: 1.8rem; margin-bottom: 15px; }
+.newsletter-form { max-width: 500px; margin: 30px auto; display: flex; gap: 10px; }
+.newsletter-form input { flex: 1; padding: 15px; border: none; border-radius: 8px; font-size: 1rem; }
+.newsletter-form button { background: #e74c3c; color: white; border: none; padding: 0 30px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.small-text { font-size: 0.85rem; opacity: 0.8; margin-top: 10px; }
+.footer { background: #1a252f; color: white; padding: 40px 0; text-align: center; }
+.footer-logo { font-size: 2rem; font-weight: 700; color: #2ecc71; margin-bottom: 15px; }
+.footer-links { display: flex; justify-content: center; gap: 25px; margin: 25px 0; flex-wrap: wrap; }
+.footer-links a { color: #ecf0f1; text-decoration: none; }
+.footer-links a:hover { color: #2ecc71; }
+.social-proof { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 30px; max-width: 500px; margin-left: auto; margin-right: auto; }
+@media (max-width: 768px) {
+    .logo { font-size: 2rem; }
+    .hero h2 { font-size: 1.8rem; }
+    .offers-grid { grid-template-columns: 1fr; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form input, .newsletter-form button { width: 100%; }
+    .filter-buttons { gap: 5px; }
+    .filter-btn { padding: 8px 15px; font-size: 0.9rem; }
+}
+.loading { text-align: center; padding: 100px 20px; font-size: 1.2rem; color: #666; }
