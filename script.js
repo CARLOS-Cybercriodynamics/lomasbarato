@@ -1,54 +1,43 @@
-const affiliateTag = "lomasbarato-20"; // Temporal hasta que tengas Amazon
+async function cargarOfertas() {
+    const res = await fetch("ofertas-semana.json");
+    const data = await res.json();
 
-fetch('prices.json')
-  .then(r => r.json())
-  .then(data => {
-    window.productos = data;
-    mostrarTodos();
-  })
-  .catch(() => {
-    document.getElementById('results').innerHTML = '<p class="text-center">Cargando precios... (próximamente data real)</p>';
-  });
+    const cont = document.getElementById("ofertas");
 
-document.getElementById('search').addEventListener('input', e => {
-  const query = e.target.value.toLowerCase().trim();
-  if (query === "") { mostrarTodos(); return; }
-  const filtrados = window.productos?.filter(p => 
-    p.producto.toLowerCase().includes(query) || 
-    p.categoria.toLowerCase().includes(query)
-  ) || [];
-  mostrarResultados(filtrados);
-});
+    data.forEach(oferta => {
+        const card = document.createElement("div");
+        card.className = "card";
 
-function mostrarTodos() {
-  mostrarResultados(window.productos || []);
+        card.innerHTML = `
+            <img src="${oferta.imagen}" alt="${oferta.producto}">
+            <h3>${oferta.producto}</h3>
+            <p class="precio">$${oferta.precio}</p>
+            <p class="tienda">${oferta.tienda}</p>
+            <p class="valido">Válido hasta ${oferta.valido_hasta}</p>
+        `;
+        cont.appendChild(card);
+    });
 }
 
-function mostrarResultados(array) {
-  const contenedor = document.getElementById('results');
-  const noResults = document.getElementById('no-results');
-  contenedor.innerHTML = '';
+function iniciarCountdown() {
+    const fechaLimite = new Date("2025-12-09T23:59:59").getTime();
 
-  if (array.length === 0) {
-    noResults.classList.remove('d-none');
-    return;
-  }
-  noResults.classList.add('d-none');
+    setInterval(() => {
+        const ahora = Date.now();
+        const diff = fechaLimite - ahora;
 
-  array.forEach(p => {
-    const card = `
-      <div class="col">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">${p.producto}</h5>
-            <p class="price-min">$$  {p.min.precio} ← ${p.min.tienda}</p>
-            <p class="price-max">  $${p.max.precio} → ${p.max.tienda}</p>
-            <hr>
-            <small class="text-success">Amazon: $${p.amazon} <a href="$$ {p.link}?tag= $${affiliateTag}" target="_blank" class="text-decoration-none">🛒 Comprar</a></small>
-            <br><small class="text-muted">${p.ultima_actualizacion}</small>
-          </div>
-        </div>
-      </div>`;
-    contenedor.innerHTML += card;
-  });
+        if (diff <= 0) {
+            document.getElementById("countdown").innerText = "Ofertas finalizadas";
+            return;
+        }
+
+        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+
+        document.getElementById("countdown").innerText =
+            `📅 Estas ofertas expiran en ${dias} días ${horas} horas`;
+    }, 1000);
 }
+
+cargarOfertas();
+iniciarCountdown();
