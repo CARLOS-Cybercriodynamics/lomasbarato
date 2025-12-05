@@ -4,95 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoMásBarato.mx - Ofertas Reales Supermercados México</title>
-    <meta name="description" content="Las mejores ofertas verificadas de Walmart, Soriana, Chedraui y Superama. Ahorra en tu despensa semanal.">
+    <meta name="description" content="Las mejores ofertas verificadas de Walmart, Soriana, Chedraui, Superama, Liverpool, Amazon y más. Ahorra en despensa, mariscos y electrodomésticos.">
+    <meta name="keywords" content="ofertas México, supermercados, precios bajos, Walmart, Soriana, Chedraui, mariscos, electrodomésticos, ahorro, descuentos">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Estilos críticos para cargar primero */
         body { margin: 0; font-family: 'Inter', sans-serif; background: #f8f9fa; }
         .loading { text-align: center; padding: 100px 20px; font-size: 1.2rem; color: #666; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
     </style>
 </head>
 <body>
-    <div class="loading" id="loading">Cargando las mejores ofertas...</div>
+    <div class="loading" id="loading">
+        <p>🔄 Cargando las mejores ofertas de México...</p>
+        <p style="font-size: 0.9rem; margin-top: 10px;">Comparando precios en 8 tiendas diferentes</p>
+    </div>
     
     <div id="app" style="display: none;">
-        <header class="header">
+        <!-- Header Principal -->
+        <header class="header" role="banner">
             <div class="container">
                 <div class="logo-section">
-                    <h1 class="logo">LoMásBarato<span class="logo-domain">.mx</span></h1>
+                    <h1 class="logo">LoMásBarato<span class="logo-domain" aria-label="punto mx">.mx</span></h1>
                     <p class="tagline">Ofertas reales verificadas de supermercados en México</p>
                 </div>
-                <div class="stores-header">
-                    <div class="store-badge walmart">Walmart</div>
-                    <div class="store-badge soriana">Soriana</div>
-                    <div class="store-badge chedraui">Chedraui</div>
-                    <div class="store-badge superama">Superama</div>
-                    <div class="store-badge aurrera">Aurrera</div>
+                
+                <div class="stores-header" aria-label="Tiendas participantes">
+                    <div class="store-badge walmart" title="Walmart México">Walmart</div>
+                    <div class="store-badge soriana" title="Soriana">Soriana</div>
+                    <div class="store-badge chedraui" title="Chedraui">Chedraui</div>
+                    <div class="store-badge superama" title="Superama">Superama</div>
+                    <div class="store-badge aurrera" title="Aurrera">Aurrera</div>
+                    <div class="store-badge liverpool" title="Liverpool" style="background: #e31837;">Liverpool</div>
+                    <div class="store-badge amazon" title="Amazon México" style="background: #FF9900; color: #000;">Amazon</div>
                 </div>
             </div>
         </header>
 
-        <section class="hero">
+        <!-- Banner Principal -->
+        <section class="hero" role="region" aria-labelledby="hero-title">
             <div class="container">
                 <div class="hero-content">
-                    <h2>✅ Ofertas Verificadas <span class="highlight">3-9 Diciembre 2025</span></h2>
-                    <p>Todas las ofertas están activas esta semana. Precios verificados manualmente.</p>
-                    <div class="warning-banner"><span>⚠️</span> Las ofertas pueden variar por tienda. Recomendamos verificar en sucursal.</div>
+                    <h2 id="hero-title">✅ Ofertas Verificadas <span class="highlight">Diciembre 2025</span></h2>
+                    <p>25 ofertas activas esta semana en 3 categorías diferentes. Precios verificados manualmente.</p>
+                    <div class="warning-banner" role="alert">
+                        <span aria-hidden="true">⚠️</span>
+                        <span>Las ofertas pueden variar por tienda. Recomendamos verificar en sucursal.</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="filters">
+        <!-- Filtros por Tienda -->
+        <section class="filters" role="region" aria-labelledby="store-filters-title">
             <div class="container">
+                <h3 id="store-filters-title" class="sr-only">Filtrar por tienda</h3>
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">Todas (15)</button>
-                    <button class="filter-btn" data-filter="walmart">Walmart (5)</button>
-                    <button class="filter-btn" data-filter="soriana">Soriana (4)</button>
-                    <button class="filter-btn" data-filter="chedraui">Chedraui (4)</button>
-                    <button class="filter-btn" data-filter="superama">Superama (2)</button>
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">Todas (25)</button>
+                    <button class="filter-btn" data-filter="walmart" aria-pressed="false">Walmart</button>
+                    <button class="filter-btn" data-filter="soriana" aria-pressed="false">Soriana</button>
+                    <button class="filter-btn" data-filter="chedraui" aria-pressed="false">Chedraui</button>
+                    <button class="filter-btn" data-filter="superama" aria-pressed="false">Superama</button>
+                    <button class="filter-btn" data-filter="liverpool" aria-pressed="false">Liverpool</button>
+                    <button class="filter-btn" data-filter="coppel" aria-pressed="false">Coppel</button>
+                    <button class="filter-btn" data-filter="amazon" aria-pressed="false">Amazon</button>
                 </div>
+                
                 <div class="sorting">
-                    <span>Ordenar por:</span>
-                    <select id="sortSelect">
+                    <label for="sortSelect" style="font-weight: 500;">Ordenar por:</label>
+                    <select id="sortSelect" aria-label="Ordenar ofertas">
                         <option value="discount">Mayor descuento</option>
                         <option value="price">Menor precio</option>
                         <option value="expiry">Próximo a expirar</option>
+                        <option value="category">Categoría</option>
                     </select>
                 </div>
             </div>
         </section>
 
-        <main class="container">
-            <div class="offers-grid" id="offersGrid"></div>
+        <!-- Filtros por Categoría -->
+        <section class="filters" role="region" aria-labelledby="category-filters-title">
+            <div class="container">
+                <h3 id="category-filters-title" style="text-align: center; margin-bottom: 20px; color: #2c3e50;">
+                    📂 Filtrar por categoría:
+                </h3>
+                <div class="category-filters" id="categoryFilters" aria-label="Filtros de categoría">
+                    <!-- Los filtros se generarán automáticamente con JavaScript -->
+                    <button class="category-filter-btn active" data-category="all" aria-pressed="true">
+                        <span aria-hidden="true">🏷️</span> Todas (25)
+                    </button>
+                    <button class="category-filter-btn" data-category="bebidas" aria-pressed="false">
+                        <span aria-hidden="true">🥤</span> Bebidas
+                    </button>
+                    <button class="category-filter-btn" data-category="carnes" aria-pressed="false">
+                        <span aria-hidden="true">🍗</span> Carnes
+                    </button>
+                    <button class="category-filter-btn" data-category="mariscos" aria-pressed="false">
+                        <span aria-hidden="true">🦐</span> Mariscos
+                    </button>
+                    <button class="category-filter-btn" data-category="electrodomésticos" aria-pressed="false">
+                        <span aria-hidden="true">🔌</span> Electrodomésticos
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Ofertas -->
+        <main class="container" role="main">
+            <div class="offers-grid" id="offersGrid" aria-live="polite">
+                <!-- Las ofertas se cargan con JavaScript -->
+                <div class="offer-placeholder" style="text-align: center; padding: 40px; color: #666;">
+                    <p>Cargando ofertas disponibles...</p>
+                </div>
+            </div>
         </main>
 
-        <section class="newsletter">
+        <!-- CTA Newsletter -->
+        <section class="newsletter" role="region" aria-labelledby="newsletter-title">
             <div class="container">
-                <h3>📧 Recibe las mejores ofertas cada lunes</h3>
+                <h3 id="newsletter-title">📧 Recibe las mejores ofertas cada lunes</h3>
                 <p>Te enviamos el resumen de ofertas de supermercados directamente a tu correo</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="tucorreo@gmail.com" required>
+                <form class="newsletter-form" aria-label="Formulario de suscripción">
+                    <input type="email" placeholder="tucorreo@gmail.com" required aria-label="Tu correo electrónico">
                     <button type="submit">Suscribirme Gratis</button>
                 </form>
                 <p class="small-text">Sin spam. Puedes darte de baja cuando quieras.</p>
             </div>
         </section>
 
-        <footer class="footer">
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
             <div class="container">
                 <div class="footer-content">
-                    <div class="footer-logo">LoMásBarato.mx</div>
+                    <div class="footer-logo" aria-label="LoMásBarato punto mx">LoMásBarato.mx</div>
                     <p>Ofertas verificadas manualmente para la comunidad mexicana</p>
-                    <div class="footer-links">
-                        <a href="#">¿Cómo funciona?</a>
-                        <a href="#">Enviar oferta</a>
-                        <a href="#">Contacto</a>
-                        <a href="#">Aviso de privacidad</a>
+                    
+                    <div class="footer-links" role="navigation" aria-label="Enlaces del sitio">
+                        <a href="#" aria-label="Cómo funciona">¿Cómo funciona?</a>
+                        <a href="#" aria-label="Enviar una oferta">Enviar oferta</a>
+                        <a href="#" aria-label="Contacto">Contacto</a>
+                        <a href="#" aria-label="Aviso de privacidad">Aviso de privacidad</a>
                     </div>
-                    <div class="social-proof">
+                    
+                    <div class="social-proof" role="complementary">
                         <p>🎯 <strong>Meta:</strong> 1,000 miembros en la primera semana</p>
                         <p>Únete a nuestra comunidad en Facebook</p>
+                    </div>
+                    
+                    <div style="margin-top: 30px; font-size: 0.8rem; opacity: 0.7;">
+                        <p>© 2025 LoMásBarato.mx - Todos los precios en MXN. Ofertas sujetas a disponibilidad.</p>
+                        <p>Este sitio compara precios de diferentes tiendas para ayudarte a ahorrar.</p>
                     </div>
                 </div>
             </div>
@@ -100,5 +163,52 @@
     </div>
 
     <script src="script.js"></script>
+    
+    <!-- Script de inicialización mejorado -->
+    <script>
+        // Verificar que todo cargó correctamente
+        window.addEventListener('load', function() {
+            console.log('✅ LoMásBarato.mx - Cargado completamente');
+            
+            // Transición suave del loading
+            setTimeout(function() {
+                const loading = document.getElementById('loading');
+                const app = document.getElementById('app');
+                
+                if (loading && app) {
+                    loading.style.opacity = '0';
+                    loading.style.transition = 'opacity 0.5s ease';
+                    
+                    setTimeout(function() {
+                        loading.style.display = 'none';
+                        app.style.display = 'block';
+                        app.style.opacity = '0';
+                        app.style.transition = 'opacity 0.5s ease';
+                        
+                        setTimeout(function() {
+                            app.style.opacity = '1';
+                        }, 50);
+                    }, 500);
+                }
+            }, 800);
+        });
+        
+        // Manejo de errores
+        window.addEventListener('error', function(e) {
+            console.error('❌ Error en la página:', e.error);
+            const loading = document.getElementById('loading');
+            const app = document.getElementById('app');
+            
+            if (loading) {
+                loading.innerHTML = `
+                    <p style="color: #e74c3c;">⚠️ Hubo un error cargando las ofertas</p>
+                    <p>Por favor recarga la página (F5)</p>
+                    <button onclick="location.reload()" style="margin-top: 20px; padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        Recargar Página
+                    </button>
+                `;
+            }
+        });
+    </script>
 </body>
 </html>
