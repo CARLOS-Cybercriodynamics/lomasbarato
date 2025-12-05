@@ -6,207 +6,924 @@
     <title>LoMásBarato.mx - Ofertas Reales Supermercados México</title>
     <meta name="description" content="Las mejores ofertas verificadas de Walmart, Soriana, Chedraui, Superama, Liverpool, Amazon y más. Ahorra en despensa, mariscos y electrodomésticos.">
     <meta name="keywords" content="ofertas México, supermercados, precios bajos, Walmart, Soriana, Chedraui, mariscos, electrodomésticos, ahorro, descuentos">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="LoMásBarato.mx - Ofertas Reales Supermercados México">
+    <meta property="og:description" content="Encuentra las mejores ofertas verificadas de supermercados en México">
+    <meta property="og:image" content="https://lomasbarato.vercel.app/img/og-image.jpg">
+    <meta property="og:url" content="https://lomasbarato.mx">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/color/96/000000/price-tag.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google AdSense (placeholder - reemplaza con tu ID) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-TU_CLIENT_ID_AQUI" crossorigin="anonymous"></script>
+    
     <style>
-        /* Estilos críticos para cargar primero */
-        body { margin: 0; font-family: 'Inter', sans-serif; background: #f8f9fa; }
-        .loading { text-align: center; padding: 100px 20px; font-size: 1.2rem; color: #666; }
-        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+        /* ESTILOS BASE (los mismos que ya tienes) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: #1e293b;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        /* SUPERMERCADOS */
+        .supermercados {
+            background: white;
+            padding: 1.8rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .super-titulo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #475569;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .super-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        
+        .super-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .super-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* COLORES POR SUPERMERCADO */
+        .walmart { background: #0071ce; color: white; }
+        .soriana { background: #e31837; color: white; }
+        .chedraui { background: #ffd100; color: #1e293b; }
+        .superama { background: #00a550; color: white; }
+        .aurrera { background: #f36f21; color: white; }
+        
+        /* SECCIÓN PRINCIPAL */
+        .main-content {
+            padding: 2.5rem 0 4rem;
+        }
+        
+        .semana-box {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+        
+        .semana-titulo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .semana-fecha {
+            background: #fbbf24;
+            color: #78350f;
+            padding: 6px 16px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+        
+        .semana-desc {
+            margin-bottom: 1.2rem;
+            opacity: 0.95;
+            font-size: 1.05rem;
+        }
+        
+        .warning {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid #fbbf24;
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+        
+        /* FILTROS */
+        .filtros {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 2.5rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .filtros-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filtro-tag {
+            padding: 10px 20px;
+            background: #e2e8f0;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            user-select: none;
+            border: 2px solid transparent;
+        }
+        
+        .filtro-tag:hover {
+            background: #cbd5e1;
+        }
+        
+        .filtro-tag.active {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .ordenar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        select {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid #cbd5e1;
+            background: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* OFERTAS GRID */
+        .ofertas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 28px;
+            margin-bottom: 4rem;
+        }
+        
+        .oferta-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .oferta-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .oferta-imagen {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-color: #f1f5f9;
+        }
+        
+        .oferta-contenido {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .oferta-titulo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.9rem;
+            color: #1e293b;
+            line-height: 1.3;
+        }
+        
+        .precio-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 0.9rem;
+            flex-wrap: wrap;
+        }
+        
+        .precio-actual {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #059669;
+        }
+        
+        .precio-anterior {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+        
+        .descuento {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+        
+        .tienda-info {
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        /* BOTONES DOBLES */
+        .botones-oferta {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+        }
+        
+        .btn-afiliado {
+            flex: 2;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn-afiliado:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-cashback {
+            flex: 1;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn-cashback:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(245, 87, 108, 0.3);
+        }
+        
+        /* NEWSLETTER */
+        .newsletter {
+            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 4rem 0;
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.25);
+        }
+        
+        .newsletter-icon {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+        
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter p {
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+            font-size: 1.1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 550px;
+            margin: 0 auto;
+            gap: 12px;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 16px 24px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.05rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .newsletter-btn {
+            padding: 16px 35px;
+            background: #fbbf24;
+            color: #78350f;
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(251, 191, 36, 0.3);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .newsletter-btn:hover {
+            background: #f59e0b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(251, 191, 36, 0.4);
+        }
+        
+        /* FOOTER (ACTUALIZADO CON ENLACES CORRECTOS) */
+        .footer {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 4rem 0 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 1rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* ENLACES LEGALES (ACTUALIZADOS - ESTA ES LA PARTE IMPORTANTE) */
+        .legal-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            justify-content: center;
+        }
+        
+        .legal-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        
+        .legal-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .adsense-container {
+            background: #334155;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 3rem 0;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        /* BOTÓN WHATSAPP FIJO */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.12);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+        }
+        
+        .whatsapp-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #25D366;
+            animation: pulse 2s infinite;
+            z-index: -1;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .ofertas-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 24px;
+            }
+            
+            .logo {
+                font-size: 2.4rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.1rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .ofertas-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input,
+            .newsletter-btn {
+                width: 100%;
+                border-radius: 10px;
+            }
+            
+            .botones-oferta {
+                flex-direction: column;
+            }
+            
+            .btn-afiliado,
+            .btn-cashback {
+                width: 100%;
+            }
+            
+            .filtros {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 18px;
+            }
+            
+            .ordenar {
+                justify-content: flex-start;
+            }
+            
+            .whatsapp-btn {
+                bottom: 25px;
+                right: 25px;
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 2rem 0;
+            }
+            
+            .logo {
+                font-size: 1.9rem;
+            }
+            
+            .ofertas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .semana-box {
+                padding: 1.5rem;
+            }
+            
+            .whatsapp-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 26px;
+            }
+        }
+        
+        /* LANDSCAPE OPTIMIZATION */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .filtros-tags {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 12px;
+            }
+            
+            .filtro-tag {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="loading" id="loading">
-        <p>🔄 Cargando las mejores ofertas de México...</p>
-        <p style="font-size: 0.9rem; margin-top: 10px;">Comparando precios en 8 tiendas diferentes</p>
-    </div>
+    <!-- HEADER CON LOGO -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-tags logo-icon"></i>
+                LoMásBarato.mx
+            </div>
+            <p class="subtitle">Ofertas reales verificadas de supermercados en México. Precios actualizados semanalmente.</p>
+        </div>
+    </header>
     
-    <div id="app" style="display: none;">
-        <!-- Header Principal -->
-        <header class="header" role="banner">
-            <div class="container">
-                <div class="logo-section">
-                    <h1 class="logo">LoMásBarato<span class="logo-domain" aria-label="punto mx">.mx</span></h1>
-                    <p class="tagline">Ofertas reales verificadas de supermercados en México</p>
+    <!-- SUPERMERCADOS -->
+    <section class="supermercados">
+        <div class="container">
+            <h3 class="super-titulo">Supermercados disponibles:</h3>
+            <div class="super-grid">
+                <a href="#walmart" class="super-btn walmart">
+                    <i class="fab fa-walmart"></i> Walmart
+                </a>
+                <a href="#soriana" class="super-btn soriana">
+                    <i class="fas fa-shopping-cart"></i> Soriana
+                </a>
+                <a href="#chedraui" class="super-btn chedraui">
+                    <i class="fas fa-store"></i> Chedraui
+                </a>
+                <a href="#superama" class="super-btn superama">
+                    <i class="fas fa-leaf"></i> Superama
+                </a>
+                <a href="#aurrera" class="super-btn aurrera">
+                    <i class="fas fa-shopping-basket"></i> Aurrera
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+        <div class="container">
+            <!-- SEMANA DE OFERTAS -->
+            <div class="semana-box">
+                <div class="semana-titulo">
+                    <i class="fas fa-check-circle"></i>
+                    <span>✅ Ofertas Verificadas</span>
+                    <span class="semana-fecha">Diciembre 2025</span>
                 </div>
-                
-                <div class="stores-header" aria-label="Tiendas participantes">
-                    <div class="store-badge walmart" title="Walmart México">Walmart</div>
-                    <div class="store-badge soriana" title="Soriana">Soriana</div>
-                    <div class="store-badge chedraui" title="Chedraui">Chedraui</div>
-                    <div class="store-badge superama" title="Superama">Superama</div>
-                    <div class="store-badge aurrera" title="Aurrera">Aurrera</div>
-                    <div class="store-badge liverpool" title="Liverpool" style="background: #e31837;">Liverpool</div>
-                    <div class="store-badge amazon" title="Amazon México" style="background: #FF9900; color: #000;">Amazon</div>
+                <p class="semana-desc">Todas las ofertas están activas esta semana. Precios verificados manualmente por nuestro equipo.</p>
+                <div class="warning">
+                    ⚠️ <strong>Importante:</strong> Los precios pueden variar por tienda y ubicación. Recomendamos verificar en sucursal antes de tu compra.
                 </div>
             </div>
-        </header>
-
-        <!-- Banner Principal -->
-        <section class="hero" role="region" aria-labelledby="hero-title">
-            <div class="container">
-                <div class="hero-content">
-                    <h2 id="hero-title">✅ Ofertas Verificadas <span class="highlight">Diciembre 2025</span></h2>
-                    <p>25 ofertas activas esta semana en 3 categorías diferentes. Precios verificados manualmente.</p>
-                    <div class="warning-banner" role="alert">
-                        <span aria-hidden="true">⚠️</span>
-                        <span>Las ofertas pueden variar por tienda. Recomendamos verificar en sucursal.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Filtros por Tienda -->
-        <section class="filters" role="region" aria-labelledby="store-filters-title">
-            <div class="container">
-                <h3 id="store-filters-title" class="sr-only">Filtrar por tienda</h3>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all" aria-pressed="true">Todas (25)</button>
-                    <button class="filter-btn" data-filter="walmart" aria-pressed="false">Walmart</button>
-                    <button class="filter-btn" data-filter="soriana" aria-pressed="false">Soriana</button>
-                    <button class="filter-btn" data-filter="chedraui" aria-pressed="false">Chedraui</button>
-                    <button class="filter-btn" data-filter="superama" aria-pressed="false">Superama</button>
-                    <button class="filter-btn" data-filter="liverpool" aria-pressed="false">Liverpool</button>
-                    <button class="filter-btn" data-filter="coppel" aria-pressed="false">Coppel</button>
-                    <button class="filter-btn" data-filter="amazon" aria-pressed="false">Amazon</button>
+            
+            <!-- FILTROS Y ORDENAR -->
+            <div class="filtros">
+                <div class="filtros-tags">
+                    <div class="filtro-tag active" data-filter="todas">Todas (25)</div>
+                    <div class="filtro-tag" data-filter="walmart">Walmart (8)</div>
+                    <div class="filtro-tag" data-filter="soriana">Soriana (6)</div>
+                    <div class="filtro-tag" data-filter="chedraui">Chedraui (5)</div>
+                    <div class="filtro-tag" data-filter="superama">Superama (3)</div>
+                    <div class="filtro-tag" data-filter="aurrera">Aurrera (3)</div>
                 </div>
                 
-                <div class="sorting">
-                    <label for="sortSelect" style="font-weight: 500;">Ordenar por:</label>
-                    <select id="sortSelect" aria-label="Ordenar ofertas">
-                        <option value="discount">Mayor descuento</option>
-                        <option value="price">Menor precio</option>
-                        <option value="expiry">Próximo a expirar</option>
-                        <option value="category">Categoría</option>
+                <div class="ordenar">
+                    <label for="orden" style="font-weight: 600;">Ordenar por:</label>
+                    <select id="orden">
+                        <option value="descuento">Mayor descuento</option>
+                        <option value="precio">Menor precio</option>
+                        <option value="nuevas">Más nuevas</option>
+                        <option value="populares">Más populares</option>
                     </select>
                 </div>
             </div>
-        </section>
-
-        <!-- Filtros por Categoría -->
-        <section class="filters" role="region" aria-labelledby="category-filters-title">
-            <div class="container">
-                <h3 id="category-filters-title" style="text-align: center; margin-bottom: 20px; color: #2c3e50;">
-                    📂 Filtrar por categoría:
-                </h3>
-                <div class="category-filters" id="categoryFilters" aria-label="Filtros de categoría">
-                    <!-- Los filtros se generarán automáticamente con JavaScript -->
-                    <button class="category-filter-btn active" data-category="all" aria-pressed="true">
-                        <span aria-hidden="true">🏷️</span> Todas (25)
-                    </button>
-                    <button class="category-filter-btn" data-category="bebidas" aria-pressed="false">
-                        <span aria-hidden="true">🥤</span> Bebidas
-                    </button>
-                    <button class="category-filter-btn" data-category="carnes" aria-pressed="false">
-                        <span aria-hidden="true">🍗</span> Carnes
-                    </button>
-                    <button class="category-filter-btn" data-category="mariscos" aria-pressed="false">
-                        <span aria-hidden="true">🦐</span> Mariscos
-                    </button>
-                    <button class="category-filter-btn" data-category="electrodomésticos" aria-pressed="false">
-                        <span aria-hidden="true">🔌</span> Electrodomésticos
-                    </button>
+            
+            <!-- OFERTAS GRID -->
+            <div class="ofertas-grid" id="ofertas-container">
+                <!-- LAS OFERTAS SE CARGARÁN AQUÍ CON JavaScript -->
+                <!-- Tu script.js manejará la generación dinámica -->
+            </div>
+            
+            <!-- NEWSLETTER -->
+            <section class="newsletter">
+                <div class="container">
+                    <i class="fas fa-envelope-open-text newsletter-icon"></i>
+                    <h2>📧 Recibe las mejores ofertas cada lunes</h2>
+                    <p>Te enviamos un resumen con las 10 ofertas más relevantes de la semana directamente a tu correo. ¡Totalmente gratis y sin spam!</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="tucorreo@ejemplo.com" required>
+                        <button type="submit" class="newsletter-btn">Suscribirme Gratis</button>
+                    </form>
+                    <small style="opacity: 0.9; display: block; margin-top: 20px;">
+                        Respetamos tu privacidad. Puedes cancelar la suscripción cuando quieras.
+                    </small>
+                </div>
+            </section>
+            
+            <!-- ADSENSE -->
+            <div class="adsense-container">
+                <!-- Reemplaza con tu código de AdSense cuando lo tengas -->
+                <div style="color: #94a3b8; font-style: italic; padding: 20px;">
+                    <i class="fas fa-ad" style="font-size: 2rem; margin-bottom: 15px; display: block;"></i>
+                    Espacio para anuncios de Google AdSense
+                    <!-- 
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-TU_CLIENT_ID"
+                         data-ad-slot="TU_SLOT_ID"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    -->
                 </div>
             </div>
-        </section>
-
-        <!-- Grid de Ofertas -->
-        <main class="container" role="main">
-            <div class="offers-grid" id="offersGrid" aria-live="polite">
-                <!-- Las ofertas se cargan con JavaScript -->
-                <div class="offer-placeholder" style="text-align: center; padding: 40px; color: #666;">
-                    <p>Cargando ofertas disponibles...</p>
-                </div>
-            </div>
-        </main>
-
-        <!-- CTA Newsletter -->
-        <section class="newsletter" role="region" aria-labelledby="newsletter-title">
-            <div class="container">
-                <h3 id="newsletter-title">📧 Recibe las mejores ofertas cada lunes</h3>
-                <p>Te enviamos el resumen de ofertas de supermercados directamente a tu correo</p>
-                <form class="newsletter-form" aria-label="Formulario de suscripción">
-                    <input type="email" placeholder="tucorreo@gmail.com" required aria-label="Tu correo electrónico">
-                    <button type="submit">Suscribirme Gratis</button>
-                </form>
-                <p class="small-text">Sin spam. Puedes darte de baja cuando quieras.</p>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer" role="contentinfo">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-logo" aria-label="LoMásBarato punto mx">LoMásBarato.mx</div>
-                    <p>Ofertas verificadas manualmente para la comunidad mexicana</p>
-                    
-                    <div class="footer-links" role="navigation" aria-label="Enlaces del sitio">
-                        <a href="#" aria-label="Cómo funciona">¿Cómo funciona?</a>
-                        <a href="#" aria-label="Enviar una oferta">Enviar oferta</a>
-                        <a href="#" aria-label="Contacto">Contacto</a>
-                        <a href="#" aria-label="Aviso de privacidad">Aviso de privacidad</a>
-                    </div>
-                    
-                    <div class="social-proof" role="complementary">
-                        <p>🎯 <strong>Meta:</strong> 1,000 miembros en la primera semana</p>
-                        <p>Únete a nuestra comunidad en Facebook</p>
-                    </div>
-                    
-                    <div style="margin-top: 30px; font-size: 0.8rem; opacity: 0.7;">
-                        <p>© 2025 LoMásBarato.mx - Todos los precios en MXN. Ofertas sujetas a disponibilidad.</p>
-                        <p>Este sitio compara precios de diferentes tiendas para ayudarte a ahorrar.</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
+        </div>
+    </main>
     
-    <!-- Script de inicialización mejorado -->
-    <script>
-        // Verificar que todo cargó correctamente
-        window.addEventListener('load', function() {
-            console.log('✅ LoMásBarato.mx - Cargado completamente');
-            
-            // Transición suave del loading
-            setTimeout(function() {
-                const loading = document.getElementById('loading');
-                const app = document.getElementById('app');
+    <!-- FOOTER (ACTUALIZADO CON ENLACES LEGALES) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LoMásBarato.mx</h3>
+                    <p style="color: #94a3b8; line-height: 1.7;">
+                        Encuentra las mejores ofertas de supermercados en México. 
+                        Precios verificados semanalmente por nuestro equipo.
+                    </p>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #64748b;">
+                        <i class="fas fa-map-marker-alt"></i> Querétaro, México
+                    </p>
+                </div>
                 
-                if (loading && app) {
-                    loading.style.opacity = '0';
-                    loading.style.transition = 'opacity 0.5s ease';
-                    
-                    setTimeout(function() {
-                        loading.style.display = 'none';
-                        app.style.display = 'block';
-                        app.style.opacity = '0';
-                        app.style.transition = 'opacity 0.5s ease';
-                        
-                        setTimeout(function() {
-                            app.style.opacity = '1';
-                        }, 50);
-                    }, 500);
-                }
-            }, 800);
-        });
-        
-        // Manejo de errores
-        window.addEventListener('error', function(e) {
-            console.error('❌ Error en la página:', e.error);
-            const loading = document.getElementById('loading');
-            const app = document.getElementById('app');
+                <div class="footer-section">
+                    <h3>Supermercados</h3>
+                    <ul class="footer-links">
+                        <li><a href="#walmart">Walmart</a></li>
+                        <li><a href="#soriana">Soriana</a></li>
+                        <li><a href="#chedraui">Chedraui</a></li>
+                        <li><a href="#superama">Superama</a></li>
+                        <li><a href="#aurrera">Aurrera</a></li>
+                        <li><a href="#liverpool">Liverpool</a></li>
+                    </ul>
+                </div>
+                
+                <!-- SECCIÓN LEGAL ACTUALIZADA -->
+                <div class="footer-section">
+                    <h3>Legal & Ayuda</h3>
+                    <ul class="footer-links">
+                        <!-- ENLACES CORRECTOS A TUS ARCHIVOS -->
+                        <li><a href="/privacidad.html">Aviso de Privacidad</a></li>
+                        <li><a href="/terminos.html">Términos y Condiciones</a></li>
+                        <li><a href="/como-funciona.html">¿Cómo funciona?</a></li>
+                        <li><a href="/contacto.html">Contáctanos</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#blog">Blog de Ahorro</a></li>
+                    </ul>
+                </div>
+            </div>
             
-            if (loading) {
-                loading.innerHTML = `
-                    <p style="color: #e74c3c;">⚠️ Hubo un error cargando las ofertas</p>
-                    <p>Por favor recarga la página (F5)</p>
-                    <button onclick="location.reload()" style="margin-top: 20px; padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                        Recargar Página
-                    </button>
-                `;
+            <!-- ENLACES LEGALES HORIZONTALES (EXTRA) -->
+            <div class="legal-links">
+                <a href="/privacidad.html">Privacidad</a>
+                <a href="/terminos.html">Términos</a>
+                <a href="/como-funciona.html">Cómo funciona</a>
+                <a href="/contacto.html">Contacto</a>
+                <a href="#cookies">Cookies</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 LoMásBarato.mx - Los precios pueden variar. Este sitio compara precios públicamente disponibles.</p>
+                <p style="margin-top: 10px; font-size: 0.85rem;">
+                    Este sitio no está afiliado a Walmart, Soriana, Chedraui u otros supermercados mencionados.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- BOTÓN WHATSAPP FIJO -->
+    <a href="https://wa.me/?text=¡Mira%20estas%20ofertas%20en%20supermercados!%20🛒👉%20https://lomasbarato.mx" 
+       target="_blank" 
+       class="whatsapp-btn"
+       aria-label="Compartir en WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-pulse"></div>
+    </a>
+    
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+    <script>
+        // FILTRADO DE OFERTAS
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtroTags = document.querySelectorAll('.filtro-tag');
+            const ofertasContainer = document.getElementById('ofertas-container');
+            
+            filtroTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    // Remover activo de todos
+                    filtroTags.forEach(t => t.classList.remove('active'));
+                    // Activar el clickeado
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    // Tu script.js debería manejar el filtrado
+                    console.log('Filtrar por:', filter);
+                    // Aquí integrarías con tu script.js existente
+                });
+            });
+            
+            // ORDENAR OFERTAS
+            const selectOrden = document.getElementById('orden');
+            selectOrden.addEventListener('change', function() {
+                const order = this.value;
+                console.log('Ordenar por:', order);
+                // Integrar con tu script.js
+            });
+            
+            // NEWSLETTER FORM
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    
+                    // Integrar con Mailchimp, ConvertKit, etc.
+                    alert(`¡Gracias por suscribirte con: ${email}! Te enviaremos las mejores ofertas.`);
+                    this.reset();
+                });
+            }
+            
+            // CONTADOR DE CLICKS
+            document.querySelectorAll('.btn-afiliado, .btn-cashback, .whatsapp-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    console.log('Click registrado:', this.href);
+                    // Integrar Google Analytics aquí
+                });
+            });
+            
+            // DETECCIÓN DE GEOLOCALIZACIÓN (OPCIONAL)
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        console.log('Ubicación detectada:', position.coords);
+                    },
+                    function(error) {
+                        console.log('Geolocalización no permitida');
+                    }
+                );
             }
         });
     </script>
