@@ -1,49 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <!-- Fondo con bandera mexicana -->
-    <defs>
-        <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#006847"/>
-            <stop offset="100%" stop-color="#009966"/>
-        </linearGradient>
-        <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#CE1126"/>
-            <stop offset="100%" stop-color="#FF3344"/>
-        </linearGradient>
-        <linearGradient id="whiteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FFFFFF"/>
-            <stop offset="100%" stop-color="#F8F9FA"/>
-        </linearGradient>
-    </defs>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <!-- Bandera mexicana en círculo -->
+    <circle cx="60" cy="60" r="55" fill="white" stroke="#E9ECEF" stroke-width="2"/>
     
-    <!-- Círculo principal -->
-    <circle cx="100" cy="100" r="90" fill="url(#whiteGrad)" stroke="#E9ECEF" stroke-width="2"/>
+    <!-- Verde (izquierda) -->
+    <path d="M 5,5 L 55,5 L 55,115 L 5,115 Z" fill="#006847"/>
     
-    <!-- Icono de oferta/pesos -->
-    <g transform="translate(100, 100)">
-        <!-- Signo de pesos estilizado -->
-        <path d="M -30,-20 Q -40,0 -30,20 L 30,20 Q 40,0 30,-20 L -30,-20 Z" 
-              fill="url(#greenGrad)" stroke="#006847" stroke-width="2"/>
-        
-        <!-- Letra "M" estilizada -->
-        <path d="M -15,5 L -15,25 M -15,15 L 0,5 M 0,5 L 0,25 M 0,15 L 15,5 M 15,5 L 15,25" 
-              stroke="url(#redGrad)" stroke-width="3" stroke-linecap="round"/>
-        
-        <!-- Estrellas decorativas -->
-        <g fill="#FFD700">
-            <circle cx="-40" cy="-30" r="2"/>
-            <circle cx="40" cy="-30" r="2"/>
-            <circle cx="-40" cy="30" r="2"/>
-            <circle cx="40" cy="30" r="2"/>
-        </g>
-    </g>
+    <!-- Rojo (derecha) -->
+    <path d="M 65,5 L 115,5 L 115,115 L 65,115 Z" fill="#CE1126"/>
     
-    <!-- Texto circular -->
-    <path id="textPath" d="M 50,100 A 50,50 0 1,1 150,100 A 50,50 0 1,1 50,100" 
-          fill="transparent"/>
-    <text font-family="Arial, sans-serif" font-size="12" fill="#006847" font-weight="bold">
-        <textPath href="#textPath" startOffset="50%" text-anchor="middle">
-            LO+MÁS BARATO • MÉXICO
-        </textPath>
-    </text>
+    <!-- Símbolo de pesos -->
+    <path d="M 60,40 Q 45,40 45,55 Q 45,70 60,70 M 60,40 Q 75,40 75,55 Q 75,70 60,70" 
+          stroke="#FFD700" stroke-width="5" stroke-linecap="round" fill="none"/>
+    
+    <!-- Letra M -->
+    <path d="M 50,80 L 50,100 M 50,90 L 60,80 M 60,80 L 60,100 M 60,90 L 70,80 M 70,80 L 70,100" 
+          stroke="white" stroke-width="3" stroke-linecap="round"/>
 </svg>
