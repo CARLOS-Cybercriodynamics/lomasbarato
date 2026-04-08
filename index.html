@@ -3,1689 +3,661 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Lo+Más Barato México 🛒 | Ofertas Reales Supermercados 2025</title>
-    <meta name="description" content="Encuentra las mejores ofertas VERIFICADAS de Walmart, Soriana, Chedraui, Amazon México. Descuentos reales en alimentos, electrodomésticos y más. ¡Ahorra hoy!">
+    <title>lomásbarato.mx | Las mejores ofertas de México con IA</title>
+    <meta name="description" content="Encuentra las mejores ofertas verificadas de Amazon, Mercado Libre, Liverpool, Walmart y Elektra. Descuentos reales en electrónica, moda, hogar, belleza y más. ¡Ahorra con IA!">
+    <meta name="keywords" content="ofertas méxico, descuentos, amazon, mercado libre, liverpool, walmart, elektra, comparador precios">
+    <meta name="author" content="lomásbarato.mx">
+    <meta name="robots" content="index, follow">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="lomásbarato.mx - Ofertas con IA en México">
+    <meta property="og:description" content="Las ofertas más baratas de México comparadas con IA">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lomasbarato.mx/">
-    <meta property="og:title" content="Lo+Más Barato México - Ofertas 100% Verificadas">
-    <meta property="og:description" content="Ofertas reales en supermercados mexicanos. Verificadas manualmente cada semana.">
-    <meta property="og:image" content="https://lomasbarato.mx/og-image.jpg">
+    <meta property="og:url" content="https://lomasbarato.mx">
     
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lo+Más Barato México 🛒">
-    <meta name="twitter:description" content="Las mejores ofertas de supermercados en un solo lugar">
-    
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "LoMásBarato.mx",
-        "url": "https://lomasbarato.mx/",
-        "description": "Agregador de ofertas verificadas en supermercados mexicanos",
-        "publisher": {
-            "@type": "Organization",
-            "name": "LoMásBarato.mx",
-            "logo": "https://lomasbarato.mx/logo-mexico.svg"
-        },
-        "countryOfOrigin": "MX"
-    }
-    </script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
     
     <style>
-        /* RESET Y VARIABLES MEXICANAS */
-        :root {
-            --verde-mex: #006847;
-            --verde-claro: #009966;
-            --rojo-mex: #CE1126;
-            --rojo-claro: #FF3344;
-            --blanco: #FFFFFF;
-            --gris-claro: #F8F9FA;
-            --gris-medio: #6C757D;
-            --gris-oscuro: #343A40;
-            --amarillo-oferta: #FFD700;
-            --naranja-caliente: #FF6B35;
-            
-            --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --sombra-fuerte: 0 8px 24px rgba(0, 0, 0, 0.12);
-            --radio-borde: 12px;
-            
-            /* Breakpoints específicos para dispositivos mexicanos */
-            --movil-pequeno: 320px;  /* iPhone SE, Galaxy A03 */
-            --movil-mediano: 375px;  /* iPhone 12/13, Galaxy A50+ */
-            --movil-grande: 425px;   /* iPhone Pro Max, Galaxy S */
-            --tablet: 768px;         /* iPad Mini, tablets económicas */
-            --desktop: 1024px;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent; /* Mejor touch en móvil */
         }
-        
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
+
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
-        
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 
-                       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', sans-serif;
-            line-height: 1.6;
-            color: var(--gris-oscuro);
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-family: 'Segoe UI', 'Trebuchet MS', system-ui, -apple-system, sans-serif;
+            background: #f7f7f7;
             min-height: 100vh;
-            padding-bottom: 60px; /* Espacio para fixed elements */
-            text-rendering: optimizeLegibility;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
-        
-        /* HEADER MEJORADO CON BANDERA MEXICANA */
-        .header {
-            background: linear-gradient(135deg, 
-                var(--verde-mex) 0%, 
-                var(--verde-claro) 30%, 
-                var(--blanco) 50%, 
-                var(--rojo-claro) 70%, 
-                var(--rojo-mex) 100%);
-            padding: 1.5rem 1rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--sombra-fuerte);
-        }
-        
-        .header::before {
-            content: "";
-            position: absolute;
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #CE1126; border-radius: 3px; }
+
+        /* Header sticky */
+        .sticky-header {
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, 
-                var(--verde-mex) 33%, 
-                var(--blanco) 33%, 
-                var(--blanco) 66%, 
-                var(--rojo-mex) 66%);
-            z-index: 2;
+            z-index: 100;
+            background: white;
+            border-bottom: 3px solid #CE1126;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
         }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+
+        /* Headline colores exactos */
+        .headline-lo { color: #006847; }
+        .headline-mas { 
+            color: #FFFFFF; 
+            background: #006847;
+            padding: 0 4px;
+            margin: 0 2px;
+            border-radius: 4px;
+            display: inline-block;
         }
-        
-        .logo-svg {
-            width: 60px;
-            height: 60px;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-        
-        .title-container h1 {
-            font-size: 1.8rem;
-            color: var(--blanco);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #FFF 0%, #FFD700 50%, #FFF 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 800;
-        }
-        
-        .tagline {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.95rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* FILTROS MEJORADOS PARA MÓVIL */
-        .filters {
-            background: var(--blanco);
-            padding: 1.2rem 1rem;
-            border-radius: var(--radio-borde);
-            margin: -2rem auto 2rem;
-            max-width: 1200px;
-            box-shadow: var(--sombra-suave);
-            position: relative;
-            z-index: 10;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            align-items: end;
-        }
-        
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .filter-label {
-            font-weight: 600;
-            color: var(--verde-mex);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .filter-select {
-            padding: 0.8rem 1rem;
-            border: 2px solid #E9ECEF;
-            border-radius: 10px;
-            font-size: 1rem;
-            background: var(--blanco);
-            color: var(--gris-oscuro);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23006847' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1em;
-        }
-        
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--verde-mex);
-            box-shadow: 0 0 0 3px rgba(0, 104, 71, 0.1);
-        }
-        
-        /* CONTADOR DE OFERTAS */
-        .counter {
-            background: linear-gradient(135deg, var(--verde-mex), var(--verde-claro));
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-        
-        /* GRID DE OFERTAS - RESPONSIVE AVANZADO */
-        .offers-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        /* CARD DE OFERTA MEJORADA */
-        .offer-card {
-            background: var(--blanco);
-            border-radius: var(--radio-borde);
+        .headline-barato { color: #CE1126; }
+        .headline-mx { color: #006847; }
+
+        /* Cards */
+        .deal-card {
+            background: white;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--sombra-suave);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             height: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            border: 1px solid #f0f0f0;
         }
-        
-        .offer-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--sombra-fuerte);
+
+        .deal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
         }
-        
-        .offer-badge {
+
+        .deal-card.hot {
+            border: 2px solid #FFB30033;
+        }
+
+        /* Badges */
+        .discount-badge {
             position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: var(--rojo-mex);
+            top: 10px;
+            left: 10px;
+            background: #CE1126;
             color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 900;
+            font-size: 13px;
+            border-radius: 6px;
+            padding: 3px 9px;
+            box-shadow: 0 2px 8px #CE112666;
             z-index: 2;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
         }
-        
-        .offer-badge.premium {
-            background: linear-gradient(135deg, var(--amarillo-oferta), var(--naranja-caliente));
-            color: var(--gris-oscuro);
-        }
-        
-        .offer-image-placeholder {
-            height: 180px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gris-medio);
-            font-size: 3rem;
-            border-bottom: 2px solid #f1f3f5;
-        }
-        
-        .offer-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .offer-category {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--verde-mex);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .offer-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--gris-oscuro);
-            margin-bottom: 1rem;
-            line-height: 1.4;
-            flex-grow: 1;
-        }
-        
-        .offer-prices {
-            display: flex;
-            align-items: baseline;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .offer-price-old {
-            color: var(--gris-medio);
-            text-decoration: line-through;
-            font-size: 1rem;
-        }
-        
-        .offer-price-new {
-            font-size: 1.5rem;
+
+        .hot-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #FF6B00, #CE1126);
+            color: white;
+            font-size: 10px;
             font-weight: 800;
-            color: var(--rojo-mex);
+            border-radius: 20px;
+            padding: 2px 8px;
+            z-index: 2;
         }
-        
-        .offer-store {
+
+        /* Countdown */
+        .countdown {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--gris-medio);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            padding: 0.5rem 0;
-            border-top: 1px solid #f1f3f5;
-            border-bottom: 1px solid #f1f3f5;
+            gap: 4px;
+            background: #111;
+            color: #FFD600;
+            font-size: 11px;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            border-radius: 4px;
+            padding: 2px 7px;
+            letter-spacing: 1px;
         }
-        
-        .offer-expiry {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gris-medio);
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .offer-button {
+
+        /* Store pills */
+        .store-pill {
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 20px;
+            padding: 2px 8px;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, var(--verde-mex), var(--verde-claro));
-            color: white;
-            text-decoration: none;
-            padding: 0.9rem 1.5rem;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            min-height: 50px; /* Touch target mínimo */
+            gap: 4px;
         }
-        
+
+        /* Stars */
+        .stars {
+            color: #FFB300;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* Botón */
+        .offer-button {
+            background: linear-gradient(135deg, #CE1126, #FF6B00);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 14px #CE112644;
+            transition: opacity 0.15s;
+            width: 100%;
+            font-family: inherit;
+        }
+
         .offer-button:hover {
-            background: linear-gradient(135deg, var(--verde-claro), var(--verde-mex));
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(0, 104, 71, 0.2);
+            opacity: 0.9;
         }
-        
-        .offer-button:active {
-            transform: scale(0.98);
-        }
-        
-        /* SECCIÓN SUSCRIPCIÓN */
-        .newsletter {
-            max-width: 600px;
-            margin: 3rem auto;
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--verde-mex), var(--verde-claro));
-            border-radius: var(--radio-borde);
-            text-align: center;
-            color: white;
-            box-shadow: var(--sombra-fuerte);
-        }
-        
-        .newsletter h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            gap: 0.5rem;
-            max-width: 400px;
-            margin: 1.5rem auto;
-        }
-        
-        .newsletter-input {
-            flex-grow: 1;
-            padding: 0.9rem 1.2rem;
+
+        /* Filtros */
+        .filter-btn {
+            background: #f5f5f5;
             border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-        }
-        
-        .newsletter-button {
-            padding: 0.9rem 2rem;
-            background: var(--rojo-mex);
-            color: white;
-            border: none;
-            border-radius: 10px;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 12px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
+            transition: all 0.15s;
+            font-family: inherit;
         }
-        
-        /* FOOTER LEGAL COMPLETO */
-        .footer {
-            background: var(--gris-oscuro);
+
+        .filter-btn.active {
+            background: #CE1126;
             color: white;
-            padding: 3rem 1rem 1.5rem;
-            margin-top: 4rem;
         }
-        
-        .footer-links {
-            max-width: 1200px;
-            margin: 0 auto;
+
+        .store-filter-btn {
+            border: none;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+            font-family: inherit;
+        }
+
+        /* Grid */
+        .offers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
         }
-        
-        .footer-section h3 {
-            color: var(--blanco);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .footer-links-list {
-            list-style: none;
-        }
-        
-        .footer-links-list a {
-            color: #ADB5BD;
-            text-decoration: none;
-            display: block;
-            padding: 0.3rem 0;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links-list a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 1.5rem;
-            border-top: 1px solid #495057;
-            text-align: center;
-            color: #ADB5BD;
-            font-size: 0.9rem;
-        }
-        
-        /* RESPONSIVE SPECIFIC FIXES PARA DISPOSITIVOS MEXICANOS */
-        
-        /* Móviles pequeños (iPhone SE, Galaxy A03) */
-        @media (max-width: 374px) {
-            html { font-size: 14px; }
-            
-            .header { padding: 1rem 0.8rem; }
-            
-            .title-container h1 {
-                font-size: 1.5rem;
-                line-height: 1.3;
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .offers-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 16px;
             }
-            
-            .filters {
-                grid-template-columns: 1fr;
-                margin: -1.5rem 0.8rem 1.5rem;
-                padding: 1rem;
+            .headline-lo, .headline-mas, .headline-barato, .headline-mx {
+                font-size: 1.6rem;
             }
-            
+        }
+
+        @media (max-width: 480px) {
             .offers-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 0 0.8rem;
             }
-            
-            .offer-button {
-                min-height: 44px; /* Tamaño mínimo touch para móviles pequeños */
-                font-size: 0.95rem;
-                padding: 0.8rem 1.2rem;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
-        }
-        
-        /* Móviles medianos (iPhone 12/13, Galaxy A50+) */
-        @media (min-width: 375px) and (max-width: 424px) {
-            .offers-grid {
-                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            }
-            
-            .offer-card {
-                min-height: 380px; /* Altura consistente */
-            }
-            
-            .filter-select {
-                font-size: 0.95rem;
-                padding: 0.7rem 0.9rem;
-            }
-        }
-        
-        /* Móviles grandes (iPhone Pro Max, Galaxy S) */
-        @media (min-width: 425px) and (max-width: 767px) {
-            .offers-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-            
-            .header {
-                padding: 1.5rem 1rem;
-            }
-            
-            .logo-container {
-                gap: 1.5rem;
-            }
-            
-            .logo-svg {
-                width: 70px;
-                height: 70px;
-            }
-        }
-        
-        /* Tablets (iPad Mini, tablets económicas) */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .offers-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                gap: 2rem;
-            }
-            
-            .filters {
-                margin: -2.5rem 2rem 3rem;
-                padding: 1.5rem;
-            }
-            
-            .title-container h1 {
-                font-size: 2.2rem;
-            }
-        }
-        
-        /* Desktop */
-        @media (min-width: 1024px) {
-            .offers-grid {
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-                gap: 2rem;
-                padding: 0 2rem;
-            }
-            
-            .header {
-                padding: 2rem 1rem;
-            }
-            
-            .logo-container {
-                gap: 2rem;
-            }
-            
-            .logo-svg {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .title-container h1 {
-                font-size: 2.5rem;
-            }
-        }
-        
-        /* ORIENTACIÓN HORIZONTAL EN MÓVILES */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .header {
-                padding: 1rem;
-            }
-            
-            .logo-container {
-                flex-direction: row;
-                margin-bottom: 0.5rem;
-            }
-            
-            .filters {
-                margin: -1rem auto 1rem;
-                padding: 0.8rem;
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .offer-card {
-                min-height: 320px;
-            }
-        }
-        
-        /* DARK MODE SUPPORT */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --blanco: #1A1A1A;
-                --gris-claro: #2D2D2D;
-                --gris-oscuro: #E9ECEF;
-                --gris-medio: #ADB5BD;
-            }
-            
-            body {
-                background: linear-gradient(135deg, #121212 0%, #1E1E1E 100%);
-            }
-            
-            .offer-card {
-                background: #2D2D2D;
-                border-color: #404040;
-            }
-            
-            .filter-select {
-                background: #2D2D2D;
-                color: #E9ECEF;
-                border-color: #404040;
-            }
-            
-            .offer-image-placeholder {
-                background: linear-gradient(135deg, #2D2D2D, #404040);
-            }
-        }
-        
-        /* HIGH CONTRAST PARA ACCESIBILIDAD */
-        @media (prefers-contrast: high) {
-            .offer-button {
-                border: 2px solid white;
-            }
-            
-            .offer-badge {
-                border: 2px solid white;
-            }
-        }
-        
-        /* REDUCED MOTION */
-        @media (prefers-reduced-motion: reduce) {
-            .offer-card:hover {
-                transform: none;
-            }
-            
-            .logo-svg {
-                animation: none;
-            }
-        }
-        
-        /* LOADING SKELETON */
-        .skeleton {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-            border-radius: 4px;
-        }
-        
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        
-        /* SCROLLBAR PERSONALIZADA */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--verde-mex);
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--verde-claro);
         }
     </style>
 </head>
 <body>
-    <!-- HEADER CON BANDERA MEXICANA -->
-    <header class="header">
-        <div class="logo-container">
-            <!-- Logo temporal - después subiremos el SVG -->
-            <div class="logo-svg">🛒</div>
-            <div class="title-container">
-                <h1>Lo+Más Barato México 🇲🇽</h1>
-                <p class="tagline">Ofertas 100% verificadas en supermercados mexicanos • Actualizado diariamente</p>
-            </div>
-        </div>
-    </header>
+    <!-- Top bar -->
+    <div style="background:#CE1126; color:white; text-align:center; font-size:11px; padding:5px; font-weight:700; letter-spacing:1px;">
+        🇲🇽 LAS MEJORES OFERTAS DE MÉXICO EN UN SOLO LUGAR — ACTUALIZADO CON IA DIARIAMENTE 🤖
+    </div>
 
-    <!-- FILTROS INTELIGENTES -->
-    <div class="filters">
-        <div class="filter-group">
-            <label class="filter-label">
-                <span>🏪</span> Supermercado
-            </label>
-            <select class="filter-select" id="storeFilter">
-                <option value="all">Todos los supermercados</option>
-                <option value="walmart">Walmart</option>
-                <option value="soriana">Soriana</option>
-                <option value="chedraui">Chedraui</option>
-                <option value="amazon">Amazon México</option>
-                <option value="liverpool">Liverpool</option>
-                <option value="coppel">Coppel</option>
-                <option value="elektra">Elektra</option>
-            </select>
-        </div>
-        
-        <div class="filter-group">
-            <label class="filter-label">
-                <span>📦</span> Categoría
-            </label>
-            <select class="filter-select" id="categoryFilter">
-                <option value="all">Todas las categorías</option>
-                <option value="bebidas">🥤 Bebidas</option>
-                <option value="carnes">🥩 Carnes</option>
-                <option value="lacteos">🥛 Lácteos</option>
-                <option value="despensa">🍚 Despensa</option>
-                <option value="electro">⚡ Electrodomésticos</option>
-                <option value="limpieza">🧼 Limpieza</option>
-                <option value="hogar">🏠 Hogar</option>
-                <option value="bebes">👶 Bebés</option>
-                <option value="mascotas">🐕 Mascotas</option>
-            </select>
-        </div>
-        
-        <div class="filter-group">
-            <label class="filter-label">
-                <span>🔥</span> Ordenar por
-            </label>
-            <select class="filter-select" id="sortFilter">
-                <option value="newest">Más recientes</option>
-                <option value="discount">Mayor descuento</option>
-                <option value="price">Menor precio</option>
-                <option value="premium">Premium primero</option>
-            </select>
-        </div>
-        
-        <div class="counter">
-            <span>🎯</span>
-            <span id="offerCount">50 ofertas activas</span>
+    <!-- Header sticky -->
+    <div class="sticky-header">
+        <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:20px; padding:12px 24px; flex-wrap:wrap;">
+            <!-- Logo / Headline -->
+            <div style="flex:0 0 auto;">
+                <div style="font-size:22px; font-weight:900; letter-spacing:-1px; line-height:1;">
+                    <span class="headline-lo">Lo</span>
+                    <span class="headline-mas">Más</span>
+                    <span class="headline-barato">Barato</span>
+                    <span class="headline-mx">.mx</span>
+                </div>
+                <div style="font-size:9px; color:#999; letter-spacing:2px; text-transform:uppercase; margin-top:1px;">
+                    IA busca · tú ahorras
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div style="flex:1; min-width:200px;">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar ofertas... ej. iPhone, Nike, Nespresso"
+                       style="width:100%; padding:10px 16px; border:2px solid #eee; border-radius:12px; font-size:13px; outline:none; font-family:inherit;">
+            </div>
+
+            <!-- Stats -->
+            <div style="display:flex; gap:20px; font-size:11px; color:#666; font-weight:600; flex-wrap:wrap;">
+                <div style="text-align:center;">
+                    <div style="font-size:18px; font-weight:900; color:#CE1126;" id="offersCount">50</div>
+                    <div>Ofertas activas</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:18px; font-weight:900; color:#006847;">5</div>
+                    <div>Tiendas</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:18px; font-weight:900; color:#CE1126; animation:pulse 1.5s infinite;">🔴 LIVE</div>
+                    <div>Precios en vivo</div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- GRID DE 50 OFERTAS -->
-    <main class="offers-grid" id="offersContainer">
-        <!-- Las ofertas se cargan dinámicamente con JavaScript -->
-    </main>
+    <!-- Hero Ticker -->
+    <div style="background:#111; color:#FFD600; padding:8px 0; overflow:hidden; white-space:nowrap; font-size:12px; font-weight:700; letter-spacing:1px;">
+        <div id="ticker" style="display:inline-block; animation:ticker 25s linear infinite;"></div>
+    </div>
 
-    <!-- NEWSLETTER -->
-    <section class="newsletter">
-        <h2>🚀 ¡No te pierdas las mejores ofertas!</h2>
-        <p>Recibe cada lunes las 10 ofertas TOP de la semana directamente en tu email.</p>
-        <form class="newsletter-form" id="newsletterForm">
-            <input type="email" 
-                   class="newsletter-input" 
-                   placeholder="tu@email.com" 
-                   required
-                   aria-label="Email para suscripción">
-            <button type="submit" class="newsletter-button">Suscribirme gratis</button>
-        </form>
-        <p style="font-size: 0.9rem; opacity: 0.9;">Sin spam • Puedes cancelar cuando quieras</p>
-    </section>
+    <!-- Hero Banner -->
+    <div style="background:linear-gradient(135deg, #1a1a1a 0%, #3d0000 50%, #1a1a1a 100%); color:white; padding:40px 24px; text-align:center; position:relative; overflow:hidden;">
+        <div style="position:absolute; inset:0; opacity:0.05; background-image:repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size:20px 20px;"></div>
+        <div style="position:relative; max-width:800px; margin:0 auto; animation:fadeInUp 0.6s ease;">
+            <div style="font-size:13px; font-weight:700; color:#FFD600; letter-spacing:3px; text-transform:uppercase; margin-bottom:12px;">
+                🤖 CURADO POR INTELIGENCIA ARTIFICIAL
+            </div>
+            <h1 style="font-size:clamp(28px, 5vw, 52px); font-weight:900; margin:0 0 12px; line-height:1.1;">
+                Las ofertas más<br>
+                <span style="color:#CE1126">baratas de México</span> 🔥
+            </h1>
+            <p style="font-size:15px; color:#ccc; margin:0 0 24px; line-height:1.6;">
+                Comparamos Amazon, Mercado Libre, Liverpool, Walmart y Elektra<br>
+                para que tú siempre pagues lo mínimo. ¡Sin esfuerzo!
+            </p>
+            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;" id="storeBadges"></div>
+        </div>
+    </div>
 
-    <!-- FOOTER LEGAL COMPLETO -->
-    <footer class="footer">
-        <div class="footer-links">
-            <div class="footer-section">
-                <h3>Lo+Más Barato</h3>
-                <ul class="footer-links-list">
-                    <li><a href="/como-funciona.html">¿Cómo funciona?</a></li>
-                    <li><a href="/#">Nuestro método</a></li>
-                    <li><a href="/#">Tiendas asociadas</a></li>
-                    <li><a href="/contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul class="footer-links-list">
-                    <li><a href="/terminos.html">Términos y Condiciones</a></li>
-                    <li><a href="/privacidad.html">Política de Privacidad</a></li>
-                    <li><a href="/#">Aviso legal</a></li>
-                    <li><a href="/#">Afiliados</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Recursos</h3>
-                <ul class="footer-links-list">
-                    <li><a href="/#">Guía de ahorro</a></li>
-                    <li><a href="/#">Tips supermercados</a></li>
-                    <li><a href="/#">App móvil (próximamente)</a></li>
-                    <li><a href="/#">Blog de ofertas</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Síguenos</h3>
-                <ul class="footer-links-list">
-                    <li><a href="https://facebook.com/lomasbaratomx">Facebook</a></li>
-                    <li><a href="https://instagram.com/lomasbaratomx">Instagram</a></li>
-                    <li><a href="https://t.me/lomasbarato">Telegram</a></li>
-                    <li><a href="/newsletter">Newsletter</a></li>
-                </ul>
+    <!-- Filters Bar -->
+    <div style="background:white; border-bottom:1px solid #eee; padding:12px 24px; position:sticky; top:72px; z-index:90; box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+        <div style="max-width:1200px; margin:0 auto; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <!-- Categories -->
+            <div style="display:flex; gap:6px; flex-wrap:wrap; flex:1;" id="categoryFilters"></div>
+            <!-- Sort -->
+            <select id="sortSelect" style="padding:6px 12px; border:2px solid #eee; border-radius:10px; font-size:12px; font-weight:600; font-family:inherit; cursor:pointer; outline:none; color:#333;">
+                <option value="discount">Mayor descuento %</option>
+                <option value="savings">Mayor ahorro $</option>
+                <option value="price">Menor precio</option>
+            </select>
+        </div>
+        <!-- Store filters -->
+        <div style="max-width:1200px; margin:8px auto 0; display:flex; gap:6px; flex-wrap:wrap;" id="storeFilters"></div>
+    </div>
+
+    <!-- Results header -->
+    <div style="max-width:1200px; margin:24px auto 16px; padding:0 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div style="font-size:14px; color:#666; font-weight:600;">
+            🔎 <strong id="resultsCount" style="color:#111;">50 ofertas</strong> encontradas
+        </div>
+        <div style="font-size:11px; color:#aaa;" id="dateDisplay"></div>
+    </div>
+
+    <!-- Grid de ofertas -->
+    <div style="max-width:1200px; margin:0 auto; padding:0 24px 48px;">
+        <div id="offersGrid" class="offers-grid"></div>
+    </div>
+
+    <!-- CTA Banner -->
+    <div style="background:linear-gradient(135deg, #CE1126, #FF6B00); color:white; text-align:center; padding:40px 24px;">
+        <div style="max-width:600px; margin:0 auto;">
+            <div style="font-size:32px; margin-bottom:8px;">🔔</div>
+            <h2 style="font-size:24px; font-weight:900; margin:0 0 8px;">¿No te quieres perder ninguna oferta?</h2>
+            <p style="font-size:14px; opacity:0.9; margin:0 0 20px;">Recibe las mejores ofertas directo en tu WhatsApp o correo. ¡Gratis!</p>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                <input type="email" id="newsletterEmail" placeholder="📧 tu@correo.com" style="padding:12px 18px; border-radius:12px; border:none; font-size:13px; width:220px; font-family:inherit;">
+                <button onclick="subscribeNewsletter()" style="background:#111; color:#FFD600; border:none; border-radius:12px; padding:12px 24px; font-weight:900; font-size:13px; cursor:pointer; font-family:inherit; letter-spacing:0.5px;">
+                    SUSCRIBIRME GRATIS 🔥
+                </button>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>© 2025 LoMásBarato.mx - Todos los derechos reservados.</p>
-            <p>Este sitio es un agregador independiente. Los precios pueden variar. Verifica siempre en la tienda oficial.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-                Hecho con ❤️ en México • Actualizado el 5 de diciembre de 2025
-            </p>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background:#111; color:#666; text-align:center; padding:24px; font-size:11px;">
+        <div style="font-size:18px; font-weight:900; color:white; margin-bottom:6px;">
+            <span style="color:#CE1126">lo</span>más<span style="color:#CE1126">barato</span>.mx
+        </div>
+        <div style="margin-bottom:8px;">
+            Como sitio de afiliados, ganamos una pequeña comisión si compras a través de nuestros enlaces — sin costo extra para ti 🤝
+        </div>
+        <div style="margin-bottom:8px;">
+            <a href="/privacidad.html" style="color:#666; text-decoration:none; margin:0 8px;">Política de Privacidad</a> |
+            <a href="/terminos.html" style="color:#666; text-decoration:none; margin:0 8px;">Términos y Condiciones</a> |
+            <a href="/como-funciona.html" style="color:#666; text-decoration:none; margin:0 8px;">¿Cómo funciona?</a>
+        </div>
+        <div style="color:#444;">
+            © 2026 lomasbarato.mx · Hecho con 🤖 IA en México 🇲🇽
         </div>
     </footer>
 
-    <!-- SCRIPT PARA 50 OFERTAS Y FILTRADO -->
     <script>
-        // DATOS DE 50 OFERTAS REALES
-        const allOffers = [
-            // ===== BEBIDAS (8 ofertas) =====
-            {
-                id: 1,
-                title: "Coca-Cola Original 2.5L + 500ml Extra",
-                category: "bebidas",
-                store: "walmart",
-                oldPrice: 42.50,
-                newPrice: 31.90,
-                discount: 25,
-                expiry: 3,
-                premium: false,
-                link: "https://www.walmart.com.mx/bebidas/coca-cola-25l/p",
-                emoji: "🥤"
-            },
-            {
-                id: 2,
-                title: "Jugo Jumex Naranja 1L Pack x3",
-                category: "bebidas",
-                store: "soriana",
-                oldPrice: 67.50,
-                newPrice: 52.90,
-                discount: 22,
-                expiry: 5,
-                premium: false,
-                link: "https://www.soriana.com/jugo-jumex-naranja",
-                emoji: "🧃"
-            },
-            {
-                id: 3,
-                title: "Cerveza Corona Extra 12 Pack Lata 355ml",
-                category: "bebidas",
-                store: "chedraui",
-                oldPrice: 299.00,
-                newPrice: 249.00,
-                discount: 17,
-                expiry: 7,
-                premium: false,
-                link: "https://www.chedraui.com.mx/cerveza-corona",
-                emoji: "🍺"
-            },
-            {
-                id: 4,
-                title: "Agua Bonafont 10L + Garrafón Gratis",
-                category: "bebidas",
-                store: "walmart",
-                oldPrice: 89.00,
-                newPrice: 69.90,
-                discount: 21,
-                expiry: 4,
-                premium: false,
-                link: "https://www.walmart.com.mx/agua-bonafont",
-                emoji: "💧"
-            },
-            {
-                id: 5,
-                title: "Vino Concha y Toro Merlot 750ml",
-                category: "bebidas",
-                store: "liverpool",
-                oldPrice: 249.00,
-                newPrice: 179.00,
-                discount: 28,
-                expiry: 10,
-                premium: true,
-                link: "https://www.liverpool.com.mx/vino-concha-toro",
-                emoji: "🍷"
-            },
-            {
-                id: 6,
-                title: "Refresco Pepsi 3L x2",
-                category: "bebidas",
-                store: "soriana",
-                oldPrice: 75.00,
-                newPrice: 59.90,
-                discount: 20,
-                expiry: 2,
-                premium: false,
-                link: "https://www.soriana.com/pepsi-3l",
-                emoji: "🥤"
-            },
-            {
-                id: 7,
-                title: "Café Nescafé Clásico 400g",
-                category: "bebidas",
-                store: "amazon",
-                oldPrice: 189.00,
-                newPrice: 149.00,
-                discount: 21,
-                expiry: 15,
-                premium: false,
-                link: "https://www.amazon.com.mx/nescafe-clasico",
-                emoji: "☕"
-            },
-            {
-                id: 8,
-                title: "Tequila Jose Cuervo Especial 750ml",
-                category: "bebidas",
-                store: "chedraui",
-                oldPrice: 349.00,
-                newPrice: 279.00,
-                discount: 20,
-                expiry: 30,
-                premium: true,
-                link: "https://www.chedraui.com.mx/tequila-jose-cuervo",
-                emoji: "🍸"
-            },
+        // ============================================
+        // 50 OFERTAS COMPLETAS
+        // ============================================
+        const STORES = {
+            amazon: { name: "Amazon.com.mx", color: "#FF9900", bg: "#FFF3E0", logo: "📦" },
+            mercadolibre: { name: "Mercado Libre", color: "#FFE600", bg: "#FFFDE7", logo: "🛒" },
+            liverpool: { name: "Liverpool", color: "#E31837", bg: "#FFEBEE", logo: "🏬" },
+            walmart: { name: "Walmart México", color: "#0071CE", bg: "#E3F2FD", logo: "🏪" },
+            elektra: { name: "Elektra / Coppel", color: "#FF6B00", bg: "#FFF3E0", logo: "⚡" }
+        };
 
-            // ===== CARNES (7 ofertas) =====
-            {
-                id: 9,
-                title: "Filete de Res Prime 1kg",
-                category: "carnes",
-                store: "walmart",
-                oldPrice: 289.00,
-                newPrice: 229.00,
-                discount: 21,
-                expiry: 2,
-                premium: false,
-                link: "https://www.walmart.com.mx/filete-res",
-                emoji: "🥩"
-            },
-            {
-                id: 10,
-                title: "Pechuga de Pollo Deshuesada 2kg",
-                category: "carnes",
-                store: "soriana",
-                oldPrice: 199.00,
-                newPrice: 159.90,
-                discount: 20,
-                expiry: 3,
-                premium: false,
-                link: "https://www.soriana.com/pechuga-pollo",
-                emoji: "🍗"
-            },
-            {
-                id: 11,
-                title: "Chuleta de Cerdo Familiar 3kg",
-                category: "carnes",
-                store: "chedraui",
-                oldPrice: 349.00,
-                newPrice: 279.00,
-                discount: 20,
-                expiry: 4,
-                premium: false,
-                link: "https://www.chedraui.com.mx/chuleta-cerdo",
-                emoji: "🥓"
-            },
-            {
-                id: 12,
-                title: "Salmón Filete Noruego 500g",
-                category: "carnes",
-                store: "walmart",
-                oldPrice: 249.00,
-                newPrice: 199.00,
-                discount: 20,
-                expiry: 2,
-                premium: true,
-                link: "https://www.walmart.com.mx/salmon-noruego",
-                emoji: "🐟"
-            },
-            {
-                id: 13,
-                title: "Hamburguesas Angus x8",
-                category: "carnes",
-                store: "soriana",
-                oldPrice: 159.00,
-                newPrice: 127.90,
-                discount: 20,
-                expiry: 7,
-                premium: false,
-                link: "https://www.soriana.com/hamburguesas-angus",
-                emoji: "🍔"
-            },
-            {
-                id: 14,
-                title: "Carne Molida 80/20 1kg",
-                category: "carnes",
-                store: "chedraui",
-                oldPrice: 149.00,
-                newPrice: 119.00,
-                discount: 20,
-                expiry: 3,
-                premium: false,
-                link: "https://www.chedraui.com.mx/carne-molida",
-                emoji: "🥩"
-            },
-            {
-                id: 15,
-                title: "Camarón Gigante 1kg",
-                category: "carnes",
-                store: "walmart",
-                oldPrice: 399.00,
-                newPrice: 319.00,
-                discount: 20,
-                expiry: 2,
-                premium: true,
-                link: "https://www.walmart.com.mx/camaron-gigante",
-                emoji: "🦐"
-            },
+        const CATEGORIES = ["Todos", "Electrónica", "Moda", "Hogar", "Belleza", "Groceries"];
 
-            // ===== LÁCTEOS (6 ofertas) =====
-            {
-                id: 16,
-                title: "Leche Lala 100% 6L",
-                category: "lacteos",
-                store: "walmart",
-                oldPrice: 159.00,
-                newPrice: 127.90,
-                discount: 20,
-                expiry: 7,
-                premium: false,
-                link: "https://www.walmart.com.mx/leche-lala",
-                emoji: "🥛"
-            },
-            {
-                id: 17,
-                title: "Queso Panela 2kg",
-                category: "lacteos",
-                store: "soriana",
-                oldPrice: 229.00,
-                newPrice: 179.00,
-                discount: 22,
-                expiry: 5,
-                premium: false,
-                link: "https://www.soriana.com/queso-panela",
-                emoji: "🧀"
-            },
-            {
-                id: 18,
-                title: "Yogurt Danone Natural 1kg",
-                category: "lacteos",
-                store: "chedraui",
-                oldPrice: 89.00,
-                newPrice: 69.90,
-                discount: 21,
-                expiry: 10,
-                premium: false,
-                link: "https://www.chedraui.com.mx/yogurt-danone",
-                emoji: "🥛"
-            },
-            {
-                id: 19,
-                title: "Mantequilla Lurpak 500g",
-                category: "lacteos",
-                store: "walmart",
-                oldPrice: 149.00,
-                newPrice: 119.00,
-                discount: 20,
-                expiry: 15,
-                premium: true,
-                link: "https://www.walmart.com.mx/mantequilla-lurpak",
-                emoji: "🧈"
-            },
-            {
-                id: 20,
-                title: "Crema Lala 1L",
-                category: "lacteos",
-                store: "soriana",
-                oldPrice: 65.00,
-                newPrice: 49.90,
-                discount: 23,
-                expiry: 7,
-                premium: false,
-                link: "https://www.soriana.com/crema-lala",
-                emoji: "🥛"
-            },
-            {
-                id: 21,
-                title: "Huevo Blanco 30 piezas",
-                category: "lacteos",
-                store: "chedraui",
-                oldPrice: 99.00,
-                newPrice: 79.90,
-                discount: 19,
-                expiry: 3,
-                premium: false,
-                link: "https://www.chedraui.com.mx/huevo-blanco",
-                emoji: "🥚"
-            },
-
-            // ===== DESPENSA (7 ofertas) =====
-            {
-                id: 22,
-                title: "Arroz Morelos 5kg",
-                category: "despensa",
-                store: "walmart",
-                oldPrice: 129.00,
-                newPrice: 99.90,
-                discount: 23,
-                expiry: 30,
-                premium: false,
-                link: "https://www.walmart.com.mx/arroz-morelos",
-                emoji: "🍚"
-            },
-            {
-                id: 23,
-                title: "Frijol Bayo 2kg",
-                category: "despensa",
-                store: "soriana",
-                oldPrice: 89.00,
-                newPrice: 69.90,
-                discount: 21,
-                expiry: 30,
-                premium: false,
-                link: "https://www.soriana.com/frijol-bayo",
-                emoji: "🫘"
-            },
-            {
-                id: 24,
-                title: "Aceite Nutrioli 3L",
-                category: "despensa",
-                store: "chedraui",
-                oldPrice: 139.00,
-                newPrice: 109.00,
-                discount: 22,
-                expiry: 60,
-                premium: false,
-                link: "https://www.chedraui.com.mx/aceite-nutrioli",
-                emoji: "🫒"
-            },
-            {
-                id: 25,
-                title: "Pasta Barilla Spaghetti 1kg",
-                category: "despensa",
-                store: "walmart",
-                oldPrice: 59.00,
-                newPrice: 44.90,
-                discount: 24,
-                expiry: 90,
-                premium: false,
-                link: "https://www.walmart.com.mx/pasta-barilla",
-                emoji: "🍝"
-            },
-            {
-                id: 26,
-                title: "Atún Dolores en Agua x6",
-                category: "despensa",
-                store: "soriana",
-                oldPrice: 129.00,
-                newPrice: 99.90,
-                discount: 23,
-                expiry: 365,
-                premium: false,
-                link: "https://www.soriana.com/atun-dolores",
-                emoji: "🐟"
-            },
-            {
-                id: 27,
-                title: "Salsa Catsup Heinz 1kg",
-                category: "despensa",
-                store: "chedraui",
-                oldPrice: 89.00,
-                newPrice: 69.90,
-                discount: 21,
-                expiry: 180,
-                premium: false,
-                link: "https://www.chedraui.com.mx/catsup-heinz",
-                emoji: "🍅"
-            },
-            {
-                id: 28,
-                title: "Harina de Trigo 5kg",
-                category: "despensa",
-                store: "walmart",
-                oldPrice: 109.00,
-                newPrice: 87.90,
-                discount: 19,
-                expiry: 90,
-                premium: false,
-                link: "https://www.walmart.com.mx/harina-trigo",
-                emoji: "🌾"
-            },
-
-            // ===== ELECTRODOMÉSTICOS (6 ofertas) =====
-            {
-                id: 29,
-                title: "Licuadora Oster Classic 10 Velocidades",
-                category: "electro",
-                store: "liverpool",
-                oldPrice: 1499.00,
-                newPrice: 974.35,
-                discount: 35,
-                expiry: 7,
-                premium: true,
-                link: "https://www.liverpool.com.mx/licuadora-oster",
-                emoji: "⚡"
-            },
-            {
-                id: 30,
-                title: "Microondas Samsung 30L",
-                category: "electro",
-                store: "coppel",
-                oldPrice: 2499.00,
-                newPrice: 1874.25,
-                discount: 25,
-                expiry: 10,
-                premium: true,
-                link: "https://www.coppel.com/microondas-samsung",
-                emoji: "🔥"
-            },
-            {
-                id: 31,
-                title: "Refrigerador Mabe 14 pies",
-                category: "electro",
-                store: "elektra",
-                oldPrice: 8999.00,
-                newPrice: 7199.20,
-                discount: 20,
-                expiry: 15,
-                premium: true,
-                link: "https://www.elektra.com.mx/refrigerador-mabe",
-                emoji: "❄️"
-            },
-            {
-                id: 32,
-                title: "Plancha de Vapor Oster",
-                category: "electro",
-                store: "walmart",
-                oldPrice: 699.00,
-                newPrice: 524.25,
-                discount: 25,
-                expiry: 5,
-                premium: false,
-                link: "https://www.walmart.com.mx/plancha-oster",
-                emoji: "♨️"
-            },
-            {
-                id: 33,
-                title: "Batidora KitchenAid 5qt",
-                category: "electro",
-                store: "amazon",
-                oldPrice: 8999.00,
-                newPrice: 7199.20,
-                discount: 20,
-                expiry: 30,
-                premium: true,
-                link: "https://www.amazon.com.mx/batidora-kitchenaid",
-                emoji: "🥣"
-            },
-            {
-                id: 34,
-                title: "Tostador Black+Decker 2 Rebanadas",
-                category: "electro",
-                store: "soriana",
-                oldPrice: 399.00,
-                newPrice: 299.25,
-                discount: 25,
-                expiry: 7,
-                premium: false,
-                link: "https://www.soriana.com/tostador-black-decker",
-                emoji: "🍞"
-            },
-
-            // ===== LIMPIEZA (6 ofertas) =====
-            {
-                id: 35,
-                title: "Detergente Ariel 6kg",
-                category: "limpieza",
-                store: "walmart",
-                oldPrice: 299.00,
-                newPrice: 239.20,
-                discount: 20,
-                expiry: 30,
-                premium: false,
-                link: "https://www.walmart.com.mx/detergente-ariel",
-                emoji: "🧼"
-            },
-            {
-                id: 36,
-                title: "Cloro Pinol 5L",
-                category: "limpieza",
-                store: "soriana",
-                oldPrice: 89.00,
-                newPrice: 66.75,
-                discount: 25,
-                expiry: 60,
-                premium: false,
-                link: "https://www.soriana.com/cloro-pinol",
-                emoji: "🧴"
-            },
-            {
-                id: 37,
-                title: "Papel Higiénico Regio 40 Rollos",
-                category: "limpieza",
-                store: "chedraui",
-                oldPrice: 249.00,
-                newPrice: 199.20,
-                discount: 20,
-                expiry: 90,
-                premium: false,
-                link: "https://www.chedraui.com.mx/papel-higienico-regio",
-                emoji: "🧻"
-            },
-            {
-                id: 38,
-                title: "Jabón Zote 2 Piezas",
-                category: "limpieza",
-                store: "walmart",
-                oldPrice: 59.00,
-                newPrice: 44.25,
-                discount: 25,
-                expiry: 365,
-                premium: false,
-                link: "https://www.walmart.com.mx/jabon-zote",
-                emoji: "🧼"
-            },
-            {
-                id: 39,
-                title: "Suavitel 5L",
-                category: "limpieza",
-                store: "soriana",
-                oldPrice: 159.00,
-                newPrice: 127.20,
-                discount: 20,
-                expiry: 180,
-                premium: false,
-                link: "https://www.soriana.com/suavitel",
-                emoji: "👕"
-            },
-            {
-                id: 40,
-                title: "Lavatrastes Foca 5kg",
-                category: "limpieza",
-                store: "chedraui",
-                oldPrice: 129.00,
-                newPrice: 96.75,
-                discount: 25,
-                expiry: 365,
-                premium: false,
-                link: "https://www.chedraui.com.mx/lavatrastes-foca",
-                emoji: "🍽️"
-            },
-
-            // ===== HOGAR (5 ofertas) =====
-            {
-                id: 41,
-                title: "Juego de Sábanas 4 Piezas King Size",
-                category: "hogar",
-                store: "liverpool",
-                oldPrice: 1299.00,
-                newPrice: 909.30,
-                discount: 30,
-                expiry: 14,
-                premium: true,
-                link: "https://www.liverpool.com.mx/sabanas-king",
-                emoji: "🛏️"
-            },
-            {
-                id: 42,
-                title: "Almohada Memory Foam",
-                category: "hogar",
-                store: "amazon",
-                oldPrice: 899.00,
-                newPrice: 674.25,
-                discount: 25,
-                expiry: 30,
-                premium: false,
-                link: "https://www.amazon.com.mx/almohada-memory-foam",
-                emoji: "🛌"
-            },
-            {
-                id: 43,
-                title: "Toallas de Baño Juego x6",
-                category: "hogar",
-                store: "coppel",
-                oldPrice: 799.00,
-                newPrice: 599.25,
-                discount: 25,
-                expiry: 21,
-                premium: false,
-                link: "https://www.coppel.com/toallas-bano",
-                emoji: "🛁"
-            },
-            {
-                id: 44,
-                title: "Cobertor Térmico Queen Size",
-                category: "hogar",
-                store: "elektra",
-                oldPrice: 1299.00,
-                newPrice: 974.25,
-                discount: 25,
-                expiry: 10,
-                premium: false,
-                link: "https://www.elektra.com.mx/cobertor-termico",
-                emoji: "🛌"
-            },
-            {
-                id: 45,
-                title: "Cortinas Blackout 2x2m",
-                category: "hogar",
-                store: "walmart",
-                oldPrice: 499.00,
-                newPrice: 374.25,
-                discount: 25,
-                expiry: 7,
-                premium: false,
-                link: "https://www.walmart.com.mx/cortinas-blackout",
-                emoji: "🪟"
-            },
-
-            // ===== BEBÉS (3 ofertas) =====
-            {
-                id: 46,
-                title: "Pañales Huggies Supreme Care x104",
-                category: "bebes",
-                store: "walmart",
-                oldPrice: 599.00,
-                newPrice: 449.25,
-                discount: 25,
-                expiry: 30,
-                premium: false,
-                link: "https://www.walmart.com.mx/panales-huggies",
-                emoji: "👶"
-            },
-            {
-                id: 47,
-                title: "Fórmula Enfamil Premium 900g",
-                category: "bebes",
-                store: "soriana",
-                oldPrice: 799.00,
-                newPrice: 639.20,
-                discount: 20,
-                expiry: 60,
-                premium: false,
-                link: "https://www.soriana.com/formula-enfamil",
-                emoji: "🍼"
-            },
-            {
-                id: 48,
-                title: "Carriola Chicco Lite Way",
-                category: "bebes",
-                store: "liverpool",
-                oldPrice: 3999.00,
-                newPrice: 2999.25,
-                discount: 25,
-                expiry: 15,
-                premium: true,
-                link: "https://www.liverpool.com.mx/carriola-chicco",
-                emoji: "👶"
-            },
-
-            // ===== MASCOTAS (2 ofertas) =====
-            {
-                id: 49,
-                title: "Croquetas Pedigree Adulto 18kg",
-                category: "mascotas",
-                store: "walmart",
-                oldPrice: 899.00,
-                newPrice: 719.20,
-                discount: 20,
-                expiry: 90,
-                premium: false,
-                link: "https://www.walmart.com.mx/croquetas-pedigree",
-                emoji: "🐕"
-            },
-            {
-                id: 50,
-                title: "Arena Sanitaria Fresh Step 10kg",
-                category: "mascotas",
-                store: "soriana",
-                oldPrice: 299.00,
-                newPrice: 224.25,
-                discount: 25,
-                expiry: 60,
-                premium: false,
-                link: "https://www.soriana.com/arena-fresh-step",
-                emoji: "🐱"
-            }
+        // 50 ofertas completas
+        const DEALS = [
+            // Electrónica (12 ofertas)
+            { id: 1, name: "Samsung Galaxy A55 5G 128GB", category: "Electrónica", store: "amazon", originalPrice: 9999, price: 6499, image: "📱", isHot: true, tag: "OFERTA RELÁMPAGO ⚡", endsIn: "02:14:33", rating: 4.7, reviews: 1243 },
+            { id: 2, name: "Laptop HP 15\" Core i5 16GB RAM 512GB SSD", category: "Electrónica", store: "walmart", originalPrice: 18999, price: 12499, image: "💻", isHot: true, tag: "🔥 INCREÍBLE PRECIO", endsIn: "11:05:00", rating: 4.5, reviews: 287 },
+            { id: 3, name: "Smart TV LG 55\" 4K OLED ThinQ AI", category: "Electrónica", store: "elektra", originalPrice: 32000, price: 19999, image: "📺", isHot: true, tag: "⚡ HOY ÚLTIMO DÍA", endsIn: "00:58:44", rating: 4.9, reviews: 678 },
+            { id: 4, name: "iPad Apple 10.9\" Wi-Fi 64GB", category: "Electrónica", store: "liverpool", originalPrice: 13999, price: 9499, image: "📱", isHot: true, tag: "🔥 VIRAL", endsIn: "07:30:00", rating: 4.8, reviews: 921 },
+            { id: 5, name: "Sony WH-1000XM5 Audífonos Noise Cancelling", category: "Electrónica", store: "mercadolibre", originalPrice: 10999, price: 6799, image: "🎧", isHot: true, tag: "⚡ FIN DE SEMANA", endsIn: "03:22:10", rating: 4.8, reviews: 1102 },
+            { id: 6, name: "Xiaomi Redmi Note 13 Pro 5G 256GB", category: "Electrónica", store: "amazon", originalPrice: 7999, price: 5499, image: "📱", isHot: false, tag: "31% OFF", endsIn: null, rating: 4.6, reviews: 845 },
+            { id: 7, name: 'Monitor Samsung 27" Curvo 144Hz', category: "Electrónica", store: "walmart", originalPrice: 5999, price: 3999, image: "🖥️", isHot: false, tag: "33% OFF", endsIn: null, rating: 4.7, reviews: 234 },
+            { id: 8, name: "Apple Watch Series 9 GPS 45mm", category: "Electrónica", store: "liverpool", originalPrice: 9999, price: 7499, image: "⌚", isHot: true, tag: "🔥 OFERTA", endsIn: "12:00:00", rating: 4.9, reviews: 567 },
+            { id: 9, name: "Logitech MX Master 3S Mouse", category: "Electrónica", store: "amazon", originalPrice: 2499, price: 1699, image: "🖱️", isHot: false, tag: "32% OFF", endsIn: null, rating: 4.8, reviews: 1890 },
+            { id: 10, name: "Nintendo Switch OLED", category: "Electrónica", store: "mercadolibre", originalPrice: 8999, price: 6999, image: "🎮", isHot: false, tag: "22% OFF", endsIn: null, rating: 4.9, reviews: 2341 },
+            { id: 11, name: "Dyson V15 Detect Aspiradora", category: "Electrónica", store: "liverpool", originalPrice: 15999, price: 11999, image: "🧹", isHot: true, tag: "⚡ HOT", endsIn: "05:30:00", rating: 4.8, reviews: 432 },
+            { id: 12, name: "Bocina JBL Charge 5", category: "Electrónica", store: "amazon", originalPrice: 3999, price: 2499, image: "🔊", isHot: false, tag: "37% OFF", endsIn: null, rating: 4.7, reviews: 3456 },
+            
+            // Moda (10 ofertas)
+            { id: 13, name: "Tenis Nike Air Max 270 Hombre", category: "Moda", store: "mercadolibre", originalPrice: 3200, price: 1799, image: "👟", isHot: false, tag: "PRECIO HISTÓRICO", endsIn: null, rating: 4.6, reviews: 504 },
+            { id: 14, name: "Vestido Zara Floral Verano", category: "Moda", store: "liverpool", originalPrice: 1299, price: 649, image: "👗", isHot: false, tag: "50% OFF", endsIn: null, rating: 4.5, reviews: 210 },
+            { id: 15, name: "Chamarra The North Face Hombre", category: "Moda", store: "amazon", originalPrice: 3999, price: 2499, image: "🧥", isHot: false, tag: "37% OFF", endsIn: null, rating: 4.7, reviews: 189 },
+            { id: 16, name: "Adidas Ultraboost 22", category: "Moda", store: "mercadolibre", originalPrice: 4500, price: 2999, image: "👟", isHot: true, tag: "🔥 OFERTA", endsIn: "08:00:00", rating: 4.8, reviews: 756 },
+            { id: 17, name: "Bolso Michael Kors Mercer", category: "Moda", store: "liverpool", originalPrice: 8500, price: 5999, image: "👜", isHot: false, tag: "29% OFF", endsIn: null, rating: 4.9, reviews: 123 },
+            { id: 18, name: "Pantalón Levis 501 Original", category: "Moda", store: "amazon", originalPrice: 1899, price: 1299, image: "👖", isHot: false, tag: "31% OFF", endsIn: null, rating: 4.6, reviews: 987 },
+            { id: 19, name: "Reloj Casio G-Shock GA-2100", category: "Moda", store: "mercadolibre", originalPrice: 3500, price: 2299, image: "⌚", isHot: true, tag: "⚡ OFERTA", endsIn: "15:00:00", rating: 4.7, reviews: 543 },
+            { id: 20, name: "Sudadera Nike Club Fleece", category: "Moda", store: "liverpool", originalPrice: 1899, price: 1199, image: "👕", isHot: false, tag: "36% OFF", endsIn: null, rating: 4.5, reviews: 321 },
+            { id: 21, name: "Lentes Ray-Ban Aviator", category: "Moda", store: "amazon", originalPrice: 3999, price: 2599, image: "🕶️", isHot: false, tag: "35% OFF", endsIn: null, rating: 4.8, reviews: 432 },
+            { id: 22, name: "Mochila Jansport Superbreak", category: "Moda", store: "mercadolibre", originalPrice: 899, price: 549, image: "🎒", isHot: false, tag: "38% OFF", endsIn: null, rating: 4.6, reviews: 876 },
+            
+            // Hogar (10 ofertas)
+            { id: 23, name: "Airfryer Philips 4.1L XXL Digital", category: "Hogar", store: "liverpool", originalPrice: 4299, price: 2199, image: "🍳", isHot: true, tag: "🔥 LO MÁS VENDIDO", endsIn: "05:42:11", rating: 4.9, reviews: 832 },
+            { id: 24, name: "Cafetera Nespresso Vertuo Pop", category: "Hogar", store: "amazon", originalPrice: 2999, price: 1699, image: "☕", isHot: false, tag: "43% OFF", endsIn: null, rating: 4.7, reviews: 1540 },
+            { id: 25, name: "Robot Aspiradora Roomba i3", category: "Hogar", store: "walmart", originalPrice: 12999, price: 8999, image: "🤖", isHot: true, tag: "⚡ OFERTA", endsIn: "20:00:00", rating: 4.6, reviews: 234 },
+            { id: 26, name: "Licuadora Ninja 1000W", category: "Hogar", store: "mercadolibre", originalPrice: 3999, price: 2499, image: "🥤", isHot: false, tag: "37% OFF", endsIn: null, rating: 4.8, reviews: 567 },
+            { id: 27, name: "Juego de Sábanas 4 Piezas King", category: "Hogar", store: "liverpool", originalPrice: 1999, price: 999, image: "🛏️", isHot: false, tag: "50% OFF", endsIn: null, rating: 4.5, reviews: 189 },
+            { id: 28, name: "Set de Ollas T-fal 10 pzas", category: "Hogar", store: "amazon", originalPrice: 4999, price: 2999, image: "🍲", isHot: true, tag: "🔥 OFERTA", endsIn: "18:30:00", rating: 4.7, reviews: 432 },
+            { id: 29, name: "Colchón Emma Original Matrimonial", category: "Hogar", store: "walmart", originalPrice: 15999, price: 10999, image: "🛌", isHot: false, tag: "31% OFF", endsIn: null, rating: 4.9, reviews: 876 },
+            { id: 30, name: "Purificador de Aire Xiaomi", category: "Hogar", store: "mercadolibre", originalPrice: 5999, price: 3999, image: "💨", isHot: false, tag: "33% OFF", endsIn: null, rating: 4.6, reviews: 345 },
+            { id: 31, name: "Plancha Vertical Oster 1000W", category: "Hogar", store: "liverpool", originalPrice: 899, price: 499, image: "👔", isHot: false, tag: "44% OFF", endsIn: null, rating: 4.4, reviews: 123 },
+            { id: 32, name: "Horno Eléctrico Oster 32L", category: "Hogar", store: "amazon", originalPrice: 3999, price: 2499, image: "🔥", isHot: false, tag: "37% OFF", endsIn: null, rating: 4.7, reviews: 567 },
+            
+            // Belleza (9 ofertas)
+            { id: 33, name: "Set Skincare Neutrogena 5 piezas", category: "Belleza", store: "amazon", originalPrice: 899, price: 449, image: "🧴", isHot: false, tag: "50% OFF", endsIn: null, rating: 4.8, reviews: 2100 },
+            { id: 34, name: "Perfume Chanel Chance Eau Tendre 100ml", category: "Belleza", store: "liverpool", originalPrice: 4800, price: 2999, image: "🌸", isHot: false, tag: "IMPORTADO", endsIn: null, rating: 4.9, reviews: 399 },
+            { id: 35, name: "Cepillo Alisador Dyson Airwrap", category: "Belleza", store: "mercadolibre", originalPrice: 15999, price: 12999, image: "💇", isHot: true, tag: "🔥 OFERTA", endsIn: "09:00:00", rating: 4.9, reviews: 234 },
+            { id: 36, name: "Sérum Facial L'Oréal Revitalift", category: "Belleza", store: "amazon", originalPrice: 599, price: 349, image: "✨", isHot: false, tag: "41% OFF", endsIn: null, rating: 4.7, reviews: 3456 },
+            { id: 37, name: "Maquillaje Maybelline Kit", category: "Belleza", store: "walmart", originalPrice: 799, price: 449, image: "💄", isHot: false, tag: "43% OFF", endsIn: null, rating: 4.5, reviews: 567 },
+            { id: 38, name: "Perfume Paco Rabanne 1 Million 100ml", category: "Belleza", store: "liverpool", originalPrice: 3200, price: 1999, image: "🧴", isHot: true, tag: "⚡ OFERTA", endsIn: "14:00:00", rating: 4.8, reviews: 432 },
+            { id: 39, name: "Mascarilla Capilar Olaplex", category: "Belleza", store: "amazon", originalPrice: 999, price: 599, image: "💆", isHot: false, tag: "40% OFF", endsIn: null, rating: 4.7, reviews: 987 },
+            { id: 40, name: "Rizadora Eléctrica Babyliss", category: "Belleza", store: "mercadolibre", originalPrice: 1899, price: 1199, image: "💇", isHot: false, tag: "36% OFF", endsIn: null, rating: 4.6, reviews: 234 },
+            { id: 41, name: "Cremas Nivea Set 3 piezas", category: "Belleza", store: "walmart", originalPrice: 399, price: 199, image: "🧴", isHot: false, tag: "50% OFF", endsIn: null, rating: 4.4, reviews: 2100 },
+            
+            // Groceries (9 ofertas)
+            { id: 42, name: "Despensa Familiar Básica 30 productos", category: "Groceries", store: "walmart", originalPrice: 1200, price: 749, image: "🛍️", isHot: false, tag: "AHORRA $451", endsIn: null, rating: 4.4, reviews: 345 },
+            { id: 43, name: "Coca-Cola Original 2.5L x6", category: "Groceries", store: "amazon", originalPrice: 399, price: 249, image: "🥤", isHot: false, tag: "37% OFF", endsIn: null, rating: 4.6, reviews: 1234 },
+            { id: 44, name: "Café Starbucks Veranda 300g", category: "Groceries", store: "mercadolibre", originalPrice: 599, price: 349, image: "☕", isHot: false, tag: "41% OFF", endsIn: null, rating: 4.8, reviews: 567 },
+            { id: 45, name: "Queso Manchego 2kg", category: "Groceries", store: "walmart", originalPrice: 499, price: 299, image: "🧀", isHot: false, tag: "40% OFF", endsIn: null, rating: 4.5, reviews: 234 },
+            { id: 46, name: "Kit Kat Paquete 36 piezas", category: "Groceries", store: "amazon", originalPrice: 299, price: 179, image: "🍫", isHot: false, tag: "40% OFF", endsIn: null, rating: 4.7, reviews: 876 },
+            { id: 47, name: "Leche Lala 100% 12L", category: "Groceries", store: "walmart", originalPrice: 299, price: 199, image: "🥛", isHot: false, tag: "33% OFF", endsIn: null, rating: 4.5, reviews: 543 },
+            { id: 48, name: "Atún Dolores en Agua 12 latas", category: "Groceries", store: "mercadolibre", originalPrice: 399, price: 249, image: "🐟", isHot: false, tag: "37% OFF", endsIn: null, rating: 4.6, reviews: 432 },
+            { id: 49, name: "Arroz Morelos 10kg", category: "Groceries", store: "walmart", originalPrice: 299, price: 199, image: "🍚", isHot: false, tag: "33% OFF", endsIn: null, rating: 4.4, reviews: 321 },
+            { id: 50, name: "Aceite Nutrioli 5L", category: "Groceries", store: "amazon", originalPrice: 399, price: 249, image: "🫒", isHot: false, tag: "37% OFF", endsIn: null, rating: 4.5, reviews: 654 }
         ];
 
-        // INICIALIZACIÓN
-        document.addEventListener('DOMContentLoaded', function() {
-            // Actualizar contador
-            document.getElementById('offerCount').textContent = 
-                `${allOffers.length} ofertas activas`;
-            
-            // Renderizar ofertas iniciales
-            renderOffers(allOffers);
-            
-            // Configurar filtros
-            setupFilters();
-            
-            // Configurar newsletter
-            setupNewsletter();
-        });
+        // Estado global
+        let activeCategory = "Todos";
+        let activeStore = "todos";
+        let searchQuery = "";
+        let sortBy = "discount";
 
-        // RENDERIZAR OFERTAS
-        function renderOffers(offers) {
-            const container = document.getElementById('offersContainer');
-            container.innerHTML = '';
+        // Funciones auxiliares
+        function formatMoney(amount) {
+            return amount.toLocaleString('es-MX');
+        }
+
+        function getDiscountPercent(original, price) {
+            return Math.round((1 - price / original) * 100);
+        }
+
+        function getStoreStyle(storeKey) {
+            return STORES[storeKey] || { name: storeKey, color: "#666", bg: "#f5f5f5", logo: "🏪" };
+        }
+
+        // Componente Countdown (actualización en tiempo real)
+        function createCountdownElement(endsIn) {
+            const container = document.createElement('div');
+            container.className = 'countdown';
+            if (!endsIn) return null;
             
-            offers.forEach(offer => {
+            const updateTimer = () => {
+                const [h, m, s] = endsIn.split(":").map(Number);
+                let total = h * 3600 + m * 60 + s - 1;
+                if (total < 0) total = 0;
+                const nh = Math.floor(total / 3600);
+                const nm = Math.floor((total % 3600) / 60);
+                const ns = total % 60;
+                endsIn = `${String(nh).padStart(2,"0")}:${String(nm).padStart(2,"0")}:${String(ns).padStart(2,"0")}`;
+                container.innerHTML = `⏱ ${endsIn}`;
+            };
+            
+            updateTimer();
+            const interval = setInterval(updateTimer, 1000);
+            container.setAttribute('data-interval', interval);
+            return container;
+        }
+
+        // Renderizar ofertas
+        function renderOffers() {
+            const filtered = DEALS
+                .filter(d => activeCategory === "Todos" || d.category === activeCategory)
+                .filter(d => activeStore === "todos" || d.store === activeStore)
+                .filter(d => d.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                .sort((a, b) => {
+                    const discountA = (a.originalPrice - a.price) / a.originalPrice;
+                    const discountB = (b.originalPrice - b.price) / b.originalPrice;
+                    const savingsA = a.originalPrice - a.price;
+                    const savingsB = b.originalPrice - b.price;
+                    if (sortBy === "discount") return discountB - discountA;
+                    if (sortBy === "savings") return savingsB - savingsA;
+                    if (sortBy === "price") return a.price - b.price;
+                    return 0;
+                });
+
+            document.getElementById('resultsCount').innerHTML = `${filtered.length} ofertas`;
+            document.getElementById('offersCount').innerHTML = filtered.length;
+
+            const grid = document.getElementById('offersGrid');
+            grid.innerHTML = '';
+
+            filtered.forEach((deal, i) => {
                 const card = document.createElement('div');
-                card.className = 'offer-card';
-                card.dataset.store = offer.store;
-                card.dataset.category = offer.category;
-                card.dataset.premium = offer.premium;
+                card.className = `deal-card ${deal.isHot ? 'hot' : ''}`;
+                card.style.animation = `fadeInUp 0.4s ease ${i * 0.03}s both`;
                 
-                const badgeClass = offer.premium ? 'offer-badge premium' : 'offer-badge';
-                const badgeText = offer.premium ? `⭐ -${offer.discount}%` : `-${offer.discount}%`;
+                const discountPercent = getDiscountPercent(deal.originalPrice, deal.price);
+                const savings = deal.originalPrice - deal.price;
+                const store = getStoreStyle(deal.store);
                 
                 card.innerHTML = `
-                    <div class="${badgeClass}">${badgeText}</div>
-                    <div class="offer-image-placeholder">${offer.emoji}</div>
-                    <div class="offer-content">
-                        <div class="offer-category">${getCategoryIcon(offer.category)} ${getCategoryName(offer.category)}</div>
-                        <h3 class="offer-title">${offer.title}</h3>
-                        <div class="offer-prices">
-                            <span class="offer-price-old">$${offer.oldPrice.toFixed(2)}</span>
-                            <span class="offer-price-new">$${offer.newPrice.toFixed(2)}</span>
+                    <div style="position:relative;">
+                        <div class="discount-badge">-${discountPercent}%</div>
+                        ${deal.isHot ? '<div class="hot-badge">🔥 HOT</div>' : ''}
+                        <div style="background:linear-gradient(135deg, #f8f8f8, #efefef); height:160px; display:flex; align-items:center; justify-content:center; font-size:72px;">
+                            ${deal.image}
                         </div>
-                        <div class="offer-store">
-                            <span>🏪</span>
-                            <span>${getStoreName(offer.store)}</span>
+                    </div>
+                    <div style="padding:14px 16px 16px; display:flex; flex-direction:column; gap:8px; flex:1;">
+                        <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                            <span style="font-size:10px; font-weight:800; color:#CE1126; background:#FFEBEE; border-radius:4px; padding:1px 6px;">${deal.tag}</span>
+                            <div id="countdown-${deal.id}" class="countdown-placeholder"></div>
                         </div>
-                        <div class="offer-expiry">
-                            <span>⏰</span>
-                            <span>Válido por ${offer.expiry} días</span>
+                        <div style="font-size:13px; font-weight:700; color:#1a1a1a; line-height:1.4;">${deal.name}</div>
+                        <div class="stars">${'★'.repeat(Math.round(deal.rating))}${'☆'.repeat(5-Math.round(deal.rating))} <span style="color:#888; font-weight:400;">${deal.rating}</span></div>
+                        <div style="font-size:10px; color:#aaa;">${deal.reviews.toLocaleString()} reseñas</div>
+                        <div style="display:flex; align-items:baseline; gap:8px; margin-top:2px;">
+                            <span style="font-size:22px; font-weight:900; color:#CE1126;">$${formatMoney(deal.price)}</span>
+                            <span style="font-size:12px; color:#bbb; text-decoration:line-through;">$${formatMoney(deal.originalPrice)}</span>
                         </div>
-                        <a href="${offer.link}" 
-                           class="offer-button" 
-                           target="_blank" 
-                           rel="noopener noreferrer nofollow">
-                            Ver oferta en ${getStoreName(offer.store)} →
-                        </a>
+                        <div style="font-size:11px; color:#006847; font-weight:700;">✅ Ahorras $${formatMoney(savings)} MXN</div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:4px;">
+                            <span class="store-pill" style="background:${store.bg}; color:${store.color}; border:1px solid ${store.color}33;">${store.logo} ${store.name}</span>
+                        </div>
+                        <button class="offer-button" onclick="window.open('https://www.${deal.store}.com.mx', '_blank')">🔥 VER OFERTA</button>
                     </div>
                 `;
                 
-                container.appendChild(card);
+                grid.appendChild(card);
+                
+                // Agregar countdown si aplica
+                if (deal.endsIn) {
+                    const countdownContainer = document.getElementById(`countdown-${deal.id}`);
+                    if (countdownContainer) {
+                        const cd = createCountdownElement(deal.endsIn);
+                        if (cd) countdownContainer.appendChild(cd);
+                    }
+                }
             });
         }
 
-        // CONFIGURAR FILTROS
-        function setupFilters() {
-            const storeFilter = document.getElementById('storeFilter');
-            const categoryFilter = document.getElementById('categoryFilter');
-            const sortFilter = document.getElementById('sortFilter');
-            
-            const filterHandlers = [storeFilter, categoryFilter, sortFilter];
-            
-            filterHandlers.forEach(filter => {
-                filter.addEventListener('change', applyFilters);
-            });
-        }
-
-        // APLICAR FILTROS Y ORDENAMIENTO
+        // Aplicar filtros y re-renderizar
         function applyFilters() {
-            const storeValue = document.getElementById('storeFilter').value;
-            const categoryValue = document.getElementById('categoryFilter').value;
-            const sortValue = document.getElementById('sortFilter').value;
-            
-            let filteredOffers = [...allOffers];
-            
-            // Filtrar por tienda
-            if (storeValue !== 'all') {
-                filteredOffers = filteredOffers.filter(offer => offer.store === storeValue);
-            }
-            
-            // Filtrar por categoría
-            if (categoryValue !== 'all') {
-                filteredOffers = filteredOffers.filter(offer => offer.category === categoryValue);
-            }
-            
-            // Ordenar
-            switch(sortValue) {
-                case 'newest':
-                    // Mantener orden por ID (más reciente primero)
-                    filteredOffers.sort((a, b) => b.id - a.id);
-                    break;
-                case 'discount':
-                    filteredOffers.sort((a, b) => b.discount - a.discount);
-                    break;
-                case 'price':
-                    filteredOffers.sort((a, b) => a.newPrice - b.newPrice);
-                    break;
-                case 'premium':
-                    filteredOffers.sort((a, b) => (b.premium === true) - (a.premium === true));
-                    break;
-            }
-            
-            // Actualizar contador
-            document.getElementById('offerCount').textContent = 
-                `${filteredOffers.length} ofertas encontradas`;
-            
-            // Renderizar
-            renderOffers(filteredOffers);
+            renderOffers();
         }
 
-        // CONFIGURAR NEWSLETTER
-        function setupNewsletter() {
-            const form = document.getElementById('newsletterForm');
-            
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value;
-                
-                // Simulación de éxito
-                alert(`¡Gracias! Te has suscrito con: ${email}\nTe enviaremos las mejores ofertas cada lunes.`);
-                this.reset();
-                
-                // Aquí iría la conexión a tu backend
-                // fetch('/api/newsletter', { method: 'POST', body: JSON.stringify({ email }) })
+        // Inicializar UI
+        function init() {
+            // Renderizar badges de tiendas en hero
+            const badgesContainer = document.getElementById('storeBadges');
+            Object.entries(STORES).forEach(([key, s]) => {
+                const badge = document.createElement('div');
+                badge.style.cssText = 'background:white; color:#333; border-radius:20px; padding:5px 14px; font-size:11px; font-weight:700; display:flex; align-items:center; gap:4px;';
+                badge.innerHTML = `${s.logo} ${s.name}`;
+                badgesContainer.appendChild(badge);
             });
+
+            // Renderizar filtros de categoría
+            const catContainer = document.getElementById('categoryFilters');
+            CATEGORIES.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                if (cat === activeCategory) btn.classList.add('active');
+                btn.innerHTML = cat === "Todos" ? "🔥 Todos" : 
+                               cat === "Electrónica" ? "📱 " + cat :
+                               cat === "Moda" ? "👗 " + cat :
+                               cat === "Hogar" ? "🏠 " + cat :
+                               cat === "Belleza" ? "✨ " + cat : "🛍️ " + cat;
+                btn.onclick = () => {
+                    activeCategory = cat;
+                    document.querySelectorAll('#categoryFilters .filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    applyFilters();
+                };
+                catContainer.appendChild(btn);
+            });
+
+            // Renderizar filtros de tienda
+            const storeContainer = document.getElementById('storeFilters');
+            const allBtn = document.createElement('button');
+            allBtn.className = 'store-filter-btn';
+            allBtn.style.cssText = activeStore === "todos" ? 'background:#111; color:white;' : 'background:#f5f5f5; color:#555;';
+            allBtn.innerHTML = 'Todas las tiendas';
+            allBtn.onclick = () => {
+                activeStore = "todos";
+                document.querySelectorAll('#storeFilters .store-filter-btn').forEach(b => b.style.cssText = 'background:#f5f5f5; color:#555;');
+                allBtn.style.cssText = 'background:#111; color:white;';
+                applyFilters();
+            };
+            storeContainer.appendChild(allBtn);
+            
+            Object.entries(STORES).forEach(([key, s]) => {
+                const btn = document.createElement('button');
+                btn.className = 'store-filter-btn';
+                btn.style.cssText = activeStore === key ? `background:${s.color}; color:${key === 'mercadolibre' ? '#333' : 'white'};` : 'background:#f5f5f5; color:#555;';
+                btn.innerHTML = `${s.logo} ${s.name}`;
+                btn.onclick = () => {
+                    activeStore = key;
+                    document.querySelectorAll('#storeFilters .store-filter-btn').forEach(b => b.style.cssText = 'background:#f5f5f5; color:#555;');
+                    btn.style.cssText = `background:${s.color}; color:${key === 'mercadolibre' ? '#333' : 'white'};`;
+                    applyFilters();
+                };
+                storeContainer.appendChild(btn);
+            });
+
+            // Search input
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                applyFilters();
+            });
+
+            // Sort select
+            document.getElementById('sortSelect').addEventListener('change', (e) => {
+                sortBy = e.target.value;
+                applyFilters();
+            });
+
+            // Ticker
+            const tickerItems = DEALS.slice(0, 10).map(d => `⚡ ${d.name.split(' ').slice(0,3).join(' ')} -${getDiscountPercent(d.originalPrice, d.price)}%`);
+            const ticker = document.getElementById('ticker');
+            ticker.innerHTML = [...tickerItems, ...tickerItems].map(i => `<span style="margin-right:48px">${i}</span>`).join('');
+
+            // Fecha
+            const date = new Date();
+            document.getElementById('dateDisplay').innerHTML = `🤖 Actualizado hoy por IA · ${date.toLocaleDateString('es-MX', {weekday:'long', day:'numeric', month:'long'})}`;
+
+            // Render inicial
+            renderOffers();
         }
 
-        // FUNCIONES AUXILIARES
-        function getCategoryIcon(category) {
-            const icons = {
-                'bebidas': '🥤',
-                'carnes': '🥩',
-                'lacteos': '🥛',
-                'despensa': '🍚',
-                'electro': '⚡',
-                'limpieza': '🧼',
-                'hogar': '🏠',
-                'bebes': '👶',
-                'mascotas': '🐕'
-            };
-            return icons[category] || '🛒';
+        // Newsletter
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletterEmail').value;
+            if (email && email.includes('@')) {
+                alert(`✅ ¡Gracias ${email}! Recibirás las mejores ofertas cada lunes.`);
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                alert('⚠️ Por favor ingresa un email válido.');
+            }
         }
 
-        function getCategoryName(category) {
-            const names = {
-                'bebidas': 'Bebidas',
-                'carnes': 'Carnes',
-                'lacteos': 'Lácteos',
-                'despensa': 'Despensa',
-                'electro': 'Electrodomésticos',
-                'limpieza': 'Limpieza',
-                'hogar': 'Hogar',
-                'bebes': 'Bebés',
-                'mascotas': 'Mascotas'
-            };
-            return names[category] || 'General';
-        }
-
-        function getStoreName(store) {
-            const names = {
-                'walmart': 'Walmart',
-                'soriana': 'Soriana',
-                'chedraui': 'Chedraui',
-                'amazon': 'Amazon México',
-                'liverpool': 'Liverpool',
-                'coppel': 'Coppel',
-                'elektra': 'Elektra'
-            };
-            return names[store] || 'Tienda';
-        }
+        window.subscribeNewsletter = subscribeNewsletter;
+        window.onload = init;
     </script>
 </body>
 </html>
